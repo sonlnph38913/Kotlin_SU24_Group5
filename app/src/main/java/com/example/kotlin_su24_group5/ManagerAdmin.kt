@@ -77,7 +77,7 @@ fun getLoaiAdmin(){
 
 
     ) {
-        Image(painter = painterResource(id = R.drawable.logo),
+        Image(painter = painterResource(id = R.drawable.logospl),
             contentDescription = "logo",
             modifier = Modifier
                 .size(60.dp)
@@ -105,7 +105,7 @@ fun getMonAnAdmin(){
 
 
     ) {
-        Image(painter = painterResource(id = R.drawable.logo),
+        Image(painter = painterResource(id = R.drawable.logospl),
             contentDescription = "logo",
             modifier = Modifier
                 .size(60.dp)

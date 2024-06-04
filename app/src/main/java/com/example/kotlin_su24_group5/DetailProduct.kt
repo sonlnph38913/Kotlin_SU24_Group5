@@ -77,7 +77,7 @@ fun getHeaderDetail(){
 
 
     ) {
-        Image(painter = painterResource(id = R.drawable.logo),
+        Image(painter = painterResource(id = R.drawable.logospl),
             contentDescription = "logo",
             modifier = Modifier
                 .size(60.dp)
@@ -195,7 +195,7 @@ fun getListMonChinh(){
             modifier = Modifier.padding(top = 10.dp, start = 15.dp)
         )
         Divider(
-            color = Color("#BDBDBD".toColorInt()), // Màu của đường kẻ
+            color = Color("#BDBDBD".toColorInt()),
             thickness = 1.dp,
             modifier = Modifier
                 .fillMaxWidth()
@@ -215,7 +215,7 @@ fun getListMonThem(){
             modifier = Modifier.padding(top = 10.dp, start = 15.dp)
         )
         Divider(
-            color = Color("#BDBDBD".toColorInt()), // Màu của đường kẻ
+            color = Color("#BDBDBD".toColorInt()),
             thickness = 1.dp,
             modifier = Modifier
                 .fillMaxWidth()
@@ -255,7 +255,7 @@ fun getListSPKhac(){
             modifier = Modifier.padding(top = 10.dp, start = 15.dp)
         )
         Divider(
-            color = Color("#BDBDBD".toColorInt()), // Màu của đường kẻ
+            color = Color("#BDBDBD".toColorInt()),
             thickness = 1.dp,
             modifier = Modifier
                 .fillMaxWidth()
