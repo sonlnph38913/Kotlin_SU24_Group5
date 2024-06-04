@@ -47,33 +47,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 
-class Support : ComponentActivity() {
+class HomeAdmin : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent{
-//            Scaffold (
 //
-//                topBar ={
-//                    TopAppBar(
-//                        title = {
-//                            GetTextTitle("Cưm tưứm ")
-//                        },
-//                        image ={
-//                               GetImage(idRes : Int= R.drawable.zalo)
-//                        },
-//                        colors = TopAppBarDefaults.topAppBarColors(
-//                            containerColor = Color("#252121".toColorInt()),
-//                            titleContentColor = MaterialTheme.colorScheme.onPrimary,
-//                            navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
-//                            actionIconContentColor = MaterialTheme.colorScheme.onSecondary
-//
-//
-//
-//                        ))
-//
-//                }, content = {
-            getLayoutSupport()
+            getLayoutHome()
 
         }
 
@@ -85,24 +65,24 @@ class Support : ComponentActivity() {
 @Preview(showBackground = true)
 
 @Composable
-fun getLayoutSupport(){
+fun getLayoutHome(){
     Column {
-        getHeaderSupport()
-        GetLayout1()
+        getHeaderHome()
+        GetLayout()
 
 
     }
 }
 @Composable
-fun GetLayout1( title: String = "Cưm tứm đim", innerPadding: PaddingValues = PaddingValues(0.dp)) {
+fun GetLayout( title: String = "Cưm tứm đim", innerPadding: PaddingValues = PaddingValues(0.dp)) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
             .background(color = Color.Black)
             .padding(
-                top = innerPadding.calculateTopPadding() + 150.dp,
-                start = 50.dp,
+                top = innerPadding.calculateTopPadding() + 10.dp,
+                start = 10.dp,
                 end = 10.dp,
                 bottom = 10.dp,
             )
@@ -111,15 +91,15 @@ fun GetLayout1( title: String = "Cưm tứm đim", innerPadding: PaddingValues 
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ){
 
-//        Greeting1(name = "Địa chỉ nhận hàng ")
-//        Greeting2(name = "Nguễn Đình Tuấn Phong \n" +
-//                " Hoàn Kiếm - Hà Nội \n" +
-//                " 0975123114")
-//        Greeting3(name = "Vui lòng chọn các phương thức sau!")
-        GetRowItem1(color = Color.Black, R.drawable.zalo, "0987654321")
-        GetRowItem1(color = Color.Black, R.drawable.gmail,"cumtumdim@gmail.com")
-        GetRowItem1(color = Color.Black, R.drawable.phone, "0987654321")
-
+        Greeting1(name = "Today : 19-05-2024 ")
+        Greeting2(name = "Số lượng đơn : 2")
+        Greeting3(name = "Doanh thu : 232,000đ" )
+        GetRowItem()
+        GetRowItem()
+        GetRowItem()
+        GetRowItem()
+        GetRowItem()
+        GetRowItem()
 
 //        SimpleButton()
     }
@@ -129,31 +109,31 @@ fun GetLayout1( title: String = "Cưm tứm đim", innerPadding: PaddingValues 
 }
 
 @Composable
-fun GetRowItem1(color: Color , idRes : Int= R.drawable.zalo, title: String ="Paypal"){
+fun GetRowItem(){
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(color = color, shape = RoundedCornerShape((12.dp)))
+            .background(color = Color.DarkGray, shape = RoundedCornerShape((12.dp)))
             .height(70.dp)
             .padding(5.dp),
         verticalAlignment = Alignment.CenterVertically,
 
         ){
-        Image(painter = painterResource(id = idRes), contentDescription ="" , modifier = Modifier.width(60.dp))
-        Text(
-            text = title,
-            modifier = Modifier
-                .weight(1f)
-                .padding(50.dp, 0.dp, 0.dp, 0.dp),
-            color = Color.White,
-
-            )
+//        Image(painter = painterResource(id = idRes), contentDescription ="" , modifier = Modifier.width(60.dp))
+//        Text(
+//            text = title,
+//            modifier = Modifier
+//                .weight(1f)
+//                .padding(50.dp, 0.dp, 0.dp, 0.dp),
+//            color = Color.White,
+//
+//            )
 
     }
 }
 
 @Composable
-fun GetTextTitle1(msg: String , innerPadding: PaddingValues = PaddingValues(0.dp)) {
+fun GetTextTitle(msg: String , innerPadding: PaddingValues = PaddingValues(0.dp)) {
     Text(
         text = msg,
         modifier = Modifier
@@ -168,11 +148,11 @@ fun GetTextTitle1(msg: String , innerPadding: PaddingValues = PaddingValues(0.dp
 }
 
 @Composable
-fun GetImage1(idRes: Int= R.drawable.zalo, innerPadding: PaddingValues = PaddingValues(0.dp)) {
+fun GetImage(idRes: Int= R.drawable.zalo, innerPadding: PaddingValues = PaddingValues(0.dp)) {
     Image(painter = painterResource(id = idRes), contentDescription ="" , modifier = Modifier.width(60.dp))
 }
 @Composable
-fun getHeaderSupport() {
+fun getHeaderHome() {
     Box(
         modifier = Modifier.fillMaxWidth()
             .background(color = Color.DarkGray)
@@ -185,7 +165,7 @@ fun getHeaderSupport() {
         ) {
             Image(
                 painter = painterResource(id = R.drawable.img),
-                contentDescription = "logo",
+                contentDescription = "Search Icon",
                 modifier = Modifier
                     .width(44.dp)
                     .height(44.dp)
@@ -217,79 +197,73 @@ fun getHeaderSupport() {
 //                )
             }
             Spacer(modifier = Modifier.width(8.dp)) // Space between Column and new Image
-//            Image(
-//                painter = painterResource(id = R.drawable.zalo), // Replace with your image resource
-//                contentDescription = "New Image",
-//                modifier = Modifier
-//                    .width(24.dp)
-//                    .height(24.dp)
-//            )
+            Image(
+                painter = painterResource(id = R.drawable.bell), // Replace with your image resource
+                contentDescription = "New Image",
+                modifier = Modifier
+                    .width(24.dp)
+                    .height(24.dp)
+            )
         }
     }
 
 }
 
-//@Composable
-//fun Greeting1(name: String) {
-//    Text(
-//        text = " $name",
-//        modifier = Modifier
-//            .padding(
-//                top = 50.dp,
-//                start = 10.dp,
-//                end = 10.dp,
-//                bottom = 0.dp
-//            )
-//            .fillMaxWidth(),
-//
-//        color = Color.LightGray,
-//        fontSize = 20.sp,
-//        fontWeight = FontWeight.Bold,
-//        textAlign = TextAlign.Start,
-//
-//
-//        )
-//}
-//@Composable
-//fun Greeting2(name: String) {
-//    Text(
-//        text = " $name",
-//        modifier = Modifier
-//            .padding(20.dp, 0.dp)
-//            .fillMaxWidth(),
-//
-//        color = Color.LightGray,
-//        fontSize = 15.sp,
-//        fontWeight = FontWeight.Bold,
-//        textAlign = TextAlign.Start,
-//
-//        )
-//}
-//
-//@Composable
-//fun Greeting3(name: String) {
-//    Text(
-//        text = " $name",
-//        modifier = Modifier
-//            .padding(10.dp, 0.dp)
-//            .fillMaxWidth(),
-//
-//        color = Color.LightGray,
-//        fontSize = 15.sp,
-//        fontWeight = FontWeight.Bold,
-//        textAlign = TextAlign.Start,
-//
-//        )
-//}
-//@Composable
-//fun SimpleButton() {
-//    Button(onClick = {
-////your onclick code here
-//    },colors = ButtonDefaults.buttonColors(containerColor = Color.DarkGray))
-//
-//
-//    {
-//
-//        Text(text = "Tiếp theo")
-//    }
-//}
+@Composable
+fun Greeting1(name: String) {
+    Text(
+        text = " $name",
+        modifier = Modifier
+            .padding(
+
+                start = 10.dp,
+                end = 10.dp,
+                bottom = 0.dp
+            )
+            .fillMaxWidth(),
+
+        color = Color.LightGray,
+        fontSize = 20.sp,
+        fontWeight = FontWeight.Bold,
+        textAlign = TextAlign.Center,
+
+
+        )
+}
+@Composable
+fun Greeting2(name: String) {
+    Text(
+        text = " $name",
+        modifier = Modifier
+            .padding(
+                start = 10.dp,
+                end = 10.dp,
+            )
+            .fillMaxWidth(),
+
+        color = Color.LightGray,
+        fontSize = 20.sp,
+        fontWeight = FontWeight.Bold,
+        textAlign = TextAlign.Center,
+
+        )
+}
+
+@Composable
+fun Greeting3(name: String) {
+    Text(
+        text = " $name",
+        modifier = Modifier
+            .padding(
+                start = 10.dp,
+                end = 10.dp,
+                bottom = 40.dp,)
+            .fillMaxWidth(),
+
+        color = Color.LightGray,
+        fontSize = 20.sp,
+        fontWeight = FontWeight.Bold,
+        textAlign = TextAlign.Center,
+
+        )
+}
