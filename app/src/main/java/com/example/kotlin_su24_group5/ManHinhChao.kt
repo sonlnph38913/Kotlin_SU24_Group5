@@ -50,7 +50,7 @@ fun Man1() {
     ) {
         Image(
             modifier = Modifier.fillMaxSize(),
-            painter = painterResource(id = R.drawable.logo1),
+            painter = painterResource(id = R.drawable.logospl),
             contentDescription = null
         )
     }

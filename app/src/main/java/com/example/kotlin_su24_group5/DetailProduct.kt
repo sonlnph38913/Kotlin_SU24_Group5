@@ -43,14 +43,17 @@ import androidx.core.view.WindowInsetsCompat
 class DetailProduct : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             GetDetailProduct()
         }
     }
+
+
 }
 @Preview
 @Composable
-private fun GetDetailProduct(){
+ fun GetDetailProduct(){
     Box (modifier = Modifier
         .background(color = Color("#252121".toColorInt()))
         .fillMaxHeight()){

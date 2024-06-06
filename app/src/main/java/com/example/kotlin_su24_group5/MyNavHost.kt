@@ -25,10 +25,8 @@ fun MyNavHost(
 ) {
 
 
-
+//    val user=User()
     val login=Login()
-
-
 
 
     NavHost(navController = navHostController,
@@ -41,12 +39,11 @@ fun MyNavHost(
 
             }
             composable(NavCons.favorite) {
-
-
+               getLayoutManagerAD()
 
             }
             composable(NavCons.thongbao) {
-                login.Login1()
+                GetDetailProduct()
 
             }
             composable(NavCons.user) {
@@ -58,6 +55,8 @@ fun MyNavHost(
         })
 
 }
+
+
 
 sealed class Screens(val route: String, val imageVector: ImageVector, val label: String) {
     object Home : Screens(

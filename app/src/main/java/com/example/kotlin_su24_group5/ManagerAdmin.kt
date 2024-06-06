@@ -37,6 +37,8 @@ class ManagerAdmin : ComponentActivity() {
         getLayoutManagerAD()
         }
     }
+
+
 }
 @Preview
 @Composable

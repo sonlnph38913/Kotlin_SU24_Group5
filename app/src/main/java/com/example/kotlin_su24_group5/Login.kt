@@ -69,7 +69,7 @@ class Login : ComponentActivity() {
                     fontWeight = FontWeight.Bold,
                     color = Color.White,
                 )
-                Image(modifier = Modifier.fillMaxSize(),  painter = painterResource(id = R.drawable.logo1),
+                Image(modifier = Modifier.fillMaxSize(),  painter = painterResource(id = R.drawable.logospl),
                     contentDescription = null)
             }
 
