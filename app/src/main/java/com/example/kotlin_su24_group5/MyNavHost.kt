@@ -25,9 +25,8 @@ fun MyNavHost(
 ) {
 
 
-//    val user=User()
-    val login=Login()
 
+    val login=Login()
 
     NavHost(navController = navHostController,
         startDestination = startDestination,
@@ -35,19 +34,19 @@ fun MyNavHost(
         builder = {
 
             composable(NavCons.home) {
-                login.Login1()
-
+                getLayoutHome()
             }
             composable(NavCons.favorite) {
-               getLayoutManagerAD()
+
+
 
             }
             composable(NavCons.thongbao) {
-                GetDetailProduct()
+                getLayoutManagerAD()
 
             }
             composable(NavCons.user) {
-                login.Login1()
+                getLayoutSupport()
 
             }
 
@@ -56,28 +55,26 @@ fun MyNavHost(
 
 }
 
-
-
 sealed class Screens(val route: String, val imageVector: ImageVector, val label: String) {
     object Home : Screens(
         route = NavCons.home,
-        label = "Home",
+        label = "Trang Chủ",
         imageVector = Icons.Rounded.Home
     )
 
     object Favorite : Screens(
         route = NavCons.favorite,
-        label = "Favorite",
+        label = "Thống Kê",
         imageVector = Icons.Rounded.ShoppingCart
     )
     object Thongbao : Screens(
         route = NavCons.thongbao,
-        label = "Thông Báo",
+        label = "Quản Lý",
         imageVector = Icons.Rounded.DateRange
     )
     object User : Screens(
         route = NavCons.user,
-        label = "User",
+        label = "Hỗ Trợ",
         imageVector = Icons.Rounded.AccountCircle
     )
 
@@ -85,9 +82,9 @@ sealed class Screens(val route: String, val imageVector: ImageVector, val label:
 }
 
 object NavCons {
-    const val home = "Home"
-    const val favorite = "Favorite"
-    const val thongbao = "Thongbao"
-    const val user = "User"
+    const val home = "Trang Chủ"
+    const val favorite = "Thống Kê"
+    const val thongbao = "Quản Lý "
+    const val user = "Hỗ Trợ"
 
 }

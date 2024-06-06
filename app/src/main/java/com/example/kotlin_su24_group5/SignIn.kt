@@ -27,6 +27,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -76,7 +77,7 @@ class SignIn : ComponentActivity() {
         val context = LocalContext.current
         Box(
             modifier = Modifier
-                .background(color = Color.White)
+                .background(color = Color.Black)
                 .fillMaxSize()
 
         ) {
@@ -108,6 +109,7 @@ class SignIn : ComponentActivity() {
 
 
 
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun Login(context: Context) {
         val defaulUser = "kotlin"
@@ -127,21 +129,29 @@ class SignIn : ComponentActivity() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 OutlinedTextField(
+
                     value = user,
                     onValueChange = { user = it },
                     label = { Text("User") },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = TextFieldDefaults.textFieldColors(
+                        containerColor = Color.White
+                    )
+
                 )
 
                 OutlinedTextField(
-
                     value = password,
                     onValueChange = { password = it },
                     label = { Text("Password") },
                     visualTransformation = PasswordVisualTransformation(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                     modifier = Modifier.fillMaxWidth()
-                        .padding(top = 10.dp)
+                        .padding(top = 10.dp),
+                    colors = TextFieldDefaults.textFieldColors(
+                        containerColor = Color.White
+                    )
+
                 )
                 Spacer(modifier = Modifier.height(16.dp))
 
@@ -163,7 +173,7 @@ class SignIn : ComponentActivity() {
                             }
                         },
                         enabled = !isLoggedIn,
-                        colors = ButtonDefaults.buttonColors(Color.Black),
+                        colors = ButtonDefaults.buttonColors(Color.DarkGray),
                         modifier = Modifier.size(width = 280.dp, height = 50.dp)
 
                         ) {
@@ -182,32 +192,32 @@ class SignIn : ComponentActivity() {
         }
     }
 
-    @Composable
-    fun SignUp(){
-        val context = LocalContext.current
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 500.dp),
-            contentAlignment = Alignment.Center
-        ){
-            Button(
-                onClick = {val intent = Intent(context, SignUp::class.java)
-                    context.startActivity(intent)},
-                colors = ButtonDefaults.buttonColors(Color.White),
-
-                ) {
-                Text(
-                    text = "Sign Up",
-                    color = Color.Black,
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
-                )
-
-            }
-        }
-
-    }
+//    @Composable
+//    fun SignUp(){
+//        val context = LocalContext.current
+//        Box(
+//            modifier = Modifier
+//                .fillMaxSize()
+//                .padding(top = 500.dp),
+//            contentAlignment = Alignment.Center
+//        ){
+//            Button(
+//                onClick = {val intent = Intent(context, SignUp::class.java)
+//                    context.startActivity(intent)},
+//                colors = ButtonDefaults.buttonColors(Color.White),
+//
+//                ) {
+//                Text(
+//                    text = "Sign Up",
+//                    color = Color.Black,
+//                    fontSize = 18.sp,
+//                    fontWeight = FontWeight.Bold
+//                )
+//
+//            }
+//        }
+//
+//    }
 
 
 
