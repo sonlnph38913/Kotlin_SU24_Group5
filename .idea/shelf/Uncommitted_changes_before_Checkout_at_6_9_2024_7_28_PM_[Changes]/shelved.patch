@@ -1,0 +1,123 @@
+Index: app/src/main/java/com/example/kotlin_su24_group5/ManagerAdmin.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.kotlin_su24_group5\r\n\r\nimport android.os.Bundle\r\nimport androidx.activity.ComponentActivity\r\nimport androidx.activity.compose.setContent\r\nimport androidx.activity.enableEdgeToEdge\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.compose.foundation.Image\r\nimport androidx.compose.foundation.background\r\nimport androidx.compose.foundation.layout.Box\r\nimport androidx.compose.foundation.layout.Column\r\nimport androidx.compose.foundation.layout.Row\r\nimport androidx.compose.foundation.layout.fillMaxHeight\r\nimport androidx.compose.foundation.layout.fillMaxWidth\r\nimport androidx.compose.foundation.layout.height\r\nimport androidx.compose.foundation.layout.padding\r\nimport androidx.compose.foundation.layout.size\r\nimport androidx.compose.foundation.lazy.LazyColumn\r\nimport androidx.compose.material3.Text\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Alignment\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.graphics.Color\r\nimport androidx.compose.ui.res.painterResource\r\nimport androidx.compose.ui.text.TextStyle\r\nimport androidx.compose.ui.tooling.preview.Preview\r\nimport androidx.compose.ui.unit.dp\r\nimport androidx.compose.ui.unit.sp\r\nimport androidx.core.graphics.toColorInt\r\nimport androidx.core.view.ViewCompat\r\nimport androidx.core.view.WindowInsetsCompat\r\n\r\nclass ManagerAdmin : ComponentActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContent {\r\n        getLayoutManagerAD()\r\n        }\r\n    }\r\n\r\n\r\n}\r\n@Preview\r\n@Composable\r\nfun getLayoutManagerAD(){\r\n    Box (modifier = Modifier\r\n        .background(color = Color(\"#252121\".toColorInt()))\r\n        .fillMaxHeight()){\r\n        LazyColumn (\r\n        ){\r\n            item { getHeaderDetail() }\r\n            item { getContentMnAdmin() }\r\n\r\n        }\r\n    }\r\n\r\n}\r\n@Composable\r\nfun getContentMnAdmin(){\r\n    Column (\r\n        modifier = Modifier\r\n            .background(color = Color(\"#252121\".toColorInt()))\r\n\r\n    ) {\r\n        getKC()\r\n        getLoaiAdmin()\r\n        getMonAnAdmin()\r\n\r\n    }\r\n    }\r\n@Composable\r\nfun getLoaiAdmin(){\r\n    Row(\r\n        verticalAlignment = Alignment.CenterVertically,\r\n        modifier = Modifier\r\n            .fillMaxWidth()\r\n            .background(color = Color(\"#252121\".toColorInt()))\r\n            .height(100.dp)\r\n\r\n\r\n    ) {\r\n        Image(painter = painterResource(id = R.drawable.logospl),\r\n            contentDescription = \"logo\",\r\n            modifier = Modifier\r\n                .size(60.dp)\r\n                .padding(start = 10.dp)\r\n        )\r\n        Text(text = \"Quản Lý Loại Món Ăn\",\r\n            style = TextStyle(\r\n                color = Color(\"#FFFFFF\".toColorInt()),\r\n                fontSize = 18.sp,\r\n                lineHeight = 22.sp,\r\n\r\n                ),\r\n            modifier = Modifier.padding(start = 15.dp)\r\n        )\r\n    }\r\n}\r\n@Composable\r\nfun getMonAnAdmin(){\r\n    Row(\r\n        verticalAlignment = Alignment.CenterVertically,\r\n        modifier = Modifier\r\n            .fillMaxWidth()\r\n            .background(color = Color(\"#252121\".toColorInt()))\r\n            .height(100.dp)\r\n\r\n\r\n    ) {\r\n        Image(painter = painterResource(id = R.drawable.logospl),\r\n            contentDescription = \"logo\",\r\n            modifier = Modifier\r\n                .size(60.dp)\r\n                .padding(start = 10.dp)\r\n        )\r\n        Text(text = \"Quản Lý Món Ăn\",\r\n            style = TextStyle(\r\n                color = Color(\"#FFFFFF\".toColorInt()),\r\n                fontSize = 18.sp,\r\n                lineHeight = 22.sp,\r\n\r\n                ),\r\n            modifier = Modifier.padding(start = 15.dp)\r\n        )\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/kotlin_su24_group5/ManagerAdmin.kt b/app/src/main/java/com/example/kotlin_su24_group5/ManagerAdmin.kt
+--- a/app/src/main/java/com/example/kotlin_su24_group5/ManagerAdmin.kt	
++++ b/app/src/main/java/com/example/kotlin_su24_group5/ManagerAdmin.kt	
+@@ -1,5 +1,7 @@
+ package com.example.kotlin_su24_group5
+ 
++import android.content.Context
++import android.content.Intent
+ import android.os.Bundle
+ import androidx.activity.ComponentActivity
+ import androidx.activity.compose.setContent
+@@ -7,6 +9,7 @@
+ import androidx.appcompat.app.AppCompatActivity
+ import androidx.compose.foundation.Image
+ import androidx.compose.foundation.background
++import androidx.compose.foundation.clickable
+ import androidx.compose.foundation.layout.Box
+ import androidx.compose.foundation.layout.Column
+ import androidx.compose.foundation.layout.Row
+@@ -21,6 +24,7 @@
+ import androidx.compose.ui.Alignment
+ import androidx.compose.ui.Modifier
+ import androidx.compose.ui.graphics.Color
++import androidx.compose.ui.platform.LocalContext
+ import androidx.compose.ui.res.painterResource
+ import androidx.compose.ui.text.TextStyle
+ import androidx.compose.ui.tooling.preview.Preview
+@@ -29,6 +33,7 @@
+ import androidx.core.graphics.toColorInt
+ import androidx.core.view.ViewCompat
+ import androidx.core.view.WindowInsetsCompat
++import com.example.kotlin_su24_group5.Dish.ListDish
+ 
+ class ManagerAdmin : ComponentActivity() {
+     override fun onCreate(savedInstanceState: Bundle?) {
+@@ -70,12 +75,14 @@
+     }
+ @Composable
+ fun getLoaiAdmin(){
++    val context = LocalContext.current
+     Row(
+         verticalAlignment = Alignment.CenterVertically,
+         modifier = Modifier
+             .fillMaxWidth()
+             .background(color = Color("#252121".toColorInt()))
+             .height(100.dp)
++            .clickable { Next2(context) }
+ 
+ 
+     ) {
+@@ -98,12 +105,14 @@
+ }
+ @Composable
+ fun getMonAnAdmin(){
++    val context = LocalContext.current
+     Row(
+         verticalAlignment = Alignment.CenterVertically,
+         modifier = Modifier
+             .fillMaxWidth()
+             .background(color = Color("#252121".toColorInt()))
+             .height(100.dp)
++            .clickable { Next1(context) }
+ 
+ 
+     ) {
+@@ -112,6 +121,8 @@
+             modifier = Modifier
+                 .size(60.dp)
+                 .padding(start = 10.dp)
++
++
+         )
+         Text(text = "Quản Lý Món Ăn",
+             style = TextStyle(
+@@ -123,4 +134,13 @@
+             modifier = Modifier.padding(start = 15.dp)
+         )
+     }
++}
++
++fun Next1(context: Context) {
++    val intent = Intent(context, ListDish::class.java)
++    context.startActivity(intent)
++}
++fun Next2(context: Context) {
++    val intent = Intent(context, QLLoaiMonScreen::class.java)
++    context.startActivity(intent)
+ }
+\ No newline at end of file
+Index: .idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"deploymentTargetSelector\">\r\n    <selectionStates>\r\n      <SelectionState runConfigName=\"app\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"ManHinhChao\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n        <DropdownSelection timestamp=\"2024-06-07T04:18:10.391065400Z\">\r\n          <Target type=\"DEFAULT_BOOT\">\r\n            <handle>\r\n              <DeviceId pluginId=\"Default\" identifier=\"serial=192.168.173.101:5555;connection=79ed9c55\" />\r\n            </handle>\r\n          </Target>\r\n        </DropdownSelection>\r\n        <DialogSelection />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"QLLoaiMonScrenn\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"QLLoaiMonScreen\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"Menu\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"QLLoaiMonScreen (1)\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n    </selectionStates>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+--- a/.idea/deploymentTargetSelector.xml	
++++ b/.idea/deploymentTargetSelector.xml	
+@@ -16,16 +16,7 @@
+         </DropdownSelection>
+         <DialogSelection />
+       </SelectionState>
+-      <SelectionState runConfigName="QLLoaiMonScrenn">
+-        <option name="selectionMode" value="DROPDOWN" />
+-      </SelectionState>
+       <SelectionState runConfigName="QLLoaiMonScreen">
+-        <option name="selectionMode" value="DROPDOWN" />
+-      </SelectionState>
+-      <SelectionState runConfigName="Menu">
+-        <option name="selectionMode" value="DROPDOWN" />
+-      </SelectionState>
+-      <SelectionState runConfigName="QLLoaiMonScreen (1)">
+         <option name="selectionMode" value="DROPDOWN" />
+       </SelectionState>
+     </selectionStates>

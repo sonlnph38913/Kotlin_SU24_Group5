@@ -39,7 +39,8 @@ class Menu : ComponentActivity() {
         setContent {
             Kotlin_SU24_Group5Theme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxSize()
+                        .background(color = Color.Black),
                     color = MaterialTheme.colorScheme.onBackground
                 ) {
                     val navController = rememberNavController()
@@ -73,7 +74,6 @@ class Menu : ComponentActivity() {
 }
 @Composable
 fun BottomNav(
-
     navController: NavHostController,
 ) {
     var selectedIndex by remember {
@@ -87,12 +87,18 @@ fun BottomNav(
         Screens.User,
         )
     NavigationBar(
-        modifier = Modifier.background(Color.Black)
+        modifier = Modifier.background(Color.Black),
+        Color.Transparent
+
+            
 
     ) {
         list.forEachIndexed { index, screens ->
             NavigationBarItem(
-//                modifier = Modifier.background(Color.White),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black),
+
                 selected = selectedIndex == index,
                 onClick = {
                     navController.navigate(screens.route)
@@ -102,10 +108,10 @@ fun BottomNav(
                 icon = {
                     Icon( imageVector = screens.imageVector,
                         contentDescription = "",
-                        tint = Color.Black)
+                        tint = Color.White)
                 },
                 label = {
-                    Text(text = screens.label, color = Color.Black)
+                    Text(text = screens.label, color = Color.White)
 
                 },
                 alwaysShowLabel = false

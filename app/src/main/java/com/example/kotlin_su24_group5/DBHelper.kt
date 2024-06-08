@@ -31,3 +31,28 @@ interface ProductDao {
     @Update
     fun update(product: ProductModel)
 }
+
+@Database(entities = [LoaiModel::class], version = 1)
+abstract class LoaiMonDB : RoomDatabase() {
+    abstract fun LoaiMonDao(): LoaiMonDao
+}
+@Dao
+interface LoaiMonDao{
+    @Query("SELECT * FROM LoaiMon")
+    fun getAllLoaiMon(): List<LoaiModel>
+
+    @Query("SELECT * FROM LoaiMon WHERE idLoai IN (:loaiIds)")
+    fun loadAllByIds(loaiIds: IntArray): List<LoaiModel>
+
+    @Insert
+    fun insert(vararg loaimon: LoaiModel)
+
+    @Delete
+    fun delete(loaimon: LoaiModel)
+
+    @Query("DELETE FROM LoaiMon WHERE idLoai = :lid")
+    fun deleteLoaiMon(lid: Int)
+
+    @Update
+    fun update(loaimon: LoaiModel)
+}

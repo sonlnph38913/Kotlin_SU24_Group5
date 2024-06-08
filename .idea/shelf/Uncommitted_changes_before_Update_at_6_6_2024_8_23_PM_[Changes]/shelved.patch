@@ -1,0 +1,234 @@
+Index: app/src/main/java/com/example/kotlin_su24_group5/MyNavHost.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.kotlin_su24_group5\r\n\r\nimport androidx.compose.foundation.background\r\nimport androidx.compose.material.icons.Icons\r\nimport androidx.compose.material.icons.rounded.AccountCircle\r\nimport androidx.compose.material.icons.rounded.DateRange\r\nimport androidx.compose.material.icons.rounded.Favorite\r\nimport androidx.compose.material.icons.rounded.FavoriteBorder\r\nimport androidx.compose.material.icons.rounded.Home\r\nimport androidx.compose.material.icons.rounded.Notifications\r\nimport androidx.compose.material.icons.rounded.ShoppingCart\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.graphics.Color\r\nimport androidx.compose.ui.graphics.vector.ImageVector\r\nimport androidx.navigation.NavHostController\r\nimport androidx.navigation.compose.NavHost\r\nimport androidx.navigation.compose.composable\r\n\r\n\r\n@Composable\r\nfun MyNavHost(\r\n    navHostController: NavHostController,\r\n    startDestination: String,\r\n) {\r\n\r\n\r\n\r\n    val login=Login()\r\n\r\n\r\n\r\n\r\n    NavHost(navController = navHostController,\r\n        startDestination = startDestination,\r\n        modifier = Modifier.background(Color.Black),\r\n        builder = {\r\n\r\n            composable(NavCons.home) {\r\n                login.Login1()\r\n\r\n            }\r\n            composable(NavCons.favorite) {\r\n\r\n\r\n\r\n            }\r\n            composable(NavCons.thongbao) {\r\n                login.Login1()\r\n\r\n            }\r\n            composable(NavCons.user) {\r\n                login.Login1()\r\n\r\n            }\r\n\r\n\r\n        })\r\n\r\n}\r\n\r\nsealed class Screens(val route: String, val imageVector: ImageVector, val label: String) {\r\n    object Home : Screens(\r\n        route = NavCons.home,\r\n        label = \"Home\",\r\n        imageVector = Icons.Rounded.Home\r\n    )\r\n\r\n    object Favorite : Screens(\r\n        route = NavCons.favorite,\r\n        label = \"Favorite\",\r\n        imageVector = Icons.Rounded.ShoppingCart\r\n    )\r\n    object Thongbao : Screens(\r\n        route = NavCons.thongbao,\r\n        label = \"Thông Báo\",\r\n        imageVector = Icons.Rounded.DateRange\r\n    )\r\n    object User : Screens(\r\n        route = NavCons.user,\r\n        label = \"User\",\r\n        imageVector = Icons.Rounded.AccountCircle\r\n    )\r\n\r\n\r\n}\r\n\r\nobject NavCons {\r\n    const val home = \"Home\"\r\n    const val favorite = \"Favorite\"\r\n    const val thongbao = \"Thongbao\"\r\n    const val user = \"User\"\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/kotlin_su24_group5/MyNavHost.kt b/app/src/main/java/com/example/kotlin_su24_group5/MyNavHost.kt
+--- a/app/src/main/java/com/example/kotlin_su24_group5/MyNavHost.kt	(revision 596a8b8254e21ad4de7abd8083fa039621e2d272)
++++ b/app/src/main/java/com/example/kotlin_su24_group5/MyNavHost.kt	(date 1717502592107)
+@@ -24,10 +24,9 @@
+     startDestination: String,
+ ) {
+ 
+-
+-
+     val login=Login()
+-
++    val sign=SignIn()
++    val home=HomeAdmin()
+ 
+ 
+ 
+@@ -37,20 +36,16 @@
+         builder = {
+ 
+             composable(NavCons.home) {
+-                login.Login1()
+-
++                getLayoutHome()
+             }
+             composable(NavCons.favorite) {
+-
+-
+-
++                getLayoutManagerAD()
+             }
+             composable(NavCons.thongbao) {
+-                login.Login1()
+ 
+             }
+             composable(NavCons.user) {
+-                login.Login1()
++
+ 
+             }
+ 
+Index: .idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"deploymentTargetSelector\">\r\n    <selectionStates>\r\n      <SelectionState runConfigName=\"app\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"Menu\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"ManHinhChao\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n    </selectionStates>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+--- a/.idea/deploymentTargetSelector.xml	(revision 596a8b8254e21ad4de7abd8083fa039621e2d272)
++++ b/.idea/deploymentTargetSelector.xml	(date 1717466530472)
+@@ -11,6 +11,9 @@
+       <SelectionState runConfigName="ManHinhChao">
+         <option name="selectionMode" value="DROPDOWN" />
+       </SelectionState>
++      <SelectionState runConfigName="HomeAdmin">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
+     </selectionStates>
+   </component>
+ </project>
+\ No newline at end of file
+Index: app/src/main/java/com/example/kotlin_su24_group5/HomeAdmin.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.kotlin_su24_group5\r\n\r\nimport android.media.Image\r\nimport android.os.Bundle\r\nimport androidx.activity.ComponentActivity\r\nimport androidx.activity.compose.setContent\r\n\r\nimport androidx.compose.foundation.Image\r\nimport androidx.compose.foundation.background\r\nimport androidx.compose.foundation.layout.Arrangement\r\nimport androidx.compose.foundation.layout.Box\r\nimport androidx.compose.foundation.layout.Column\r\nimport androidx.compose.foundation.layout.PaddingValues\r\nimport androidx.compose.foundation.layout.Row\r\nimport androidx.compose.foundation.layout.Spacer\r\nimport androidx.compose.foundation.layout.fillMaxHeight\r\nimport androidx.compose.foundation.layout.fillMaxSize\r\nimport androidx.compose.foundation.layout.fillMaxWidth\r\nimport androidx.compose.foundation.layout.height\r\nimport androidx.compose.foundation.layout.padding\r\nimport androidx.compose.foundation.layout.width\r\nimport androidx.compose.foundation.shape.RoundedCornerShape\r\nimport androidx.compose.material.icons.Icons\r\nimport androidx.compose.material.icons.filled.Menu\r\nimport androidx.compose.material3.Button\r\nimport androidx.compose.material3.ButtonDefaults\r\nimport androidx.compose.material3.ExperimentalMaterial3Api\r\nimport androidx.compose.material3.Icon\r\nimport androidx.compose.material3.IconButton\r\nimport androidx.compose.material3.MaterialTheme\r\nimport androidx.compose.material3.RadioButton\r\nimport androidx.compose.material3.Scaffold\r\nimport androidx.compose.material3.Shapes\r\nimport androidx.compose.material3.Text\r\nimport androidx.compose.material3.TopAppBar\r\nimport androidx.compose.material3.TopAppBarDefaults\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Alignment\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.graphics.Color\r\nimport androidx.compose.ui.res.painterResource\r\nimport androidx.compose.ui.text.TextStyle\r\nimport androidx.compose.ui.text.font.FontWeight\r\nimport androidx.compose.ui.text.style.TextAlign\r\nimport androidx.compose.ui.tooling.preview.Preview\r\nimport androidx.compose.ui.unit.dp\r\nimport androidx.compose.ui.unit.sp\r\nimport androidx.core.graphics.toColorInt\r\n\r\nclass HomeAdmin : ComponentActivity() {\r\n    @OptIn(ExperimentalMaterial3Api::class)\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContent{\r\n//\r\n            getLayoutHome()\r\n\r\n        }\r\n\r\n\r\n    }\r\n}\r\n\r\n\r\n@Preview(showBackground = true)\r\n\r\n@Composable\r\nfun getLayoutHome(){\r\n    Column {\r\n        getHeaderHome()\r\n        GetLayout()\r\n\r\n\r\n    }\r\n}\r\n@Composable\r\nfun GetLayout( title: String = \"Cưm tứm đim\", innerPadding: PaddingValues = PaddingValues(0.dp)) {\r\n    Column(\r\n        modifier = Modifier\r\n            .fillMaxWidth()\r\n            .fillMaxHeight()\r\n            .background(color = Color.Black)\r\n            .padding(\r\n                top = innerPadding.calculateTopPadding() + 10.dp,\r\n                start = 10.dp,\r\n                end = 10.dp,\r\n                bottom = 10.dp,\r\n            )\r\n        ,\r\n        horizontalAlignment = Alignment.CenterHorizontally,\r\n        verticalArrangement = Arrangement.spacedBy(10.dp)\r\n    ){\r\n\r\n        Greeting1(name = \"Today : 19-05-2024 \")\r\n        Greeting2(name = \"Số lượng đơn : 2\")\r\n        Greeting3(name = \"Doanh thu : 232,000đ\" )\r\n        GetRowItem()\r\n        GetRowItem()\r\n        GetRowItem()\r\n        GetRowItem()\r\n        GetRowItem()\r\n        GetRowItem()\r\n\r\n//        SimpleButton()\r\n    }\r\n\r\n\r\n\r\n}\r\n\r\n@Composable\r\nfun GetRowItem(){\r\n    Row(\r\n        modifier = Modifier\r\n            .fillMaxWidth()\r\n            .background(color = Color.DarkGray, shape = RoundedCornerShape((12.dp)))\r\n            .height(70.dp)\r\n            .padding(5.dp),\r\n        verticalAlignment = Alignment.CenterVertically,\r\n\r\n        ){\r\n//        Image(painter = painterResource(id = idRes), contentDescription =\"\" , modifier = Modifier.width(60.dp))\r\n//        Text(\r\n//            text = title,\r\n//            modifier = Modifier\r\n//                .weight(1f)\r\n//                .padding(50.dp, 0.dp, 0.dp, 0.dp),\r\n//            color = Color.White,\r\n//\r\n//            )\r\n\r\n    }\r\n}\r\n\r\n@Composable\r\nfun GetTextTitle(msg: String , innerPadding: PaddingValues = PaddingValues(0.dp)) {\r\n    Text(\r\n        text = msg,\r\n        modifier = Modifier\r\n            .padding(0.dp, 20.dp)\r\n            .fillMaxWidth(),\r\n        color = Color.White,\r\n        fontSize = 20.sp,\r\n        fontWeight = FontWeight.Bold,\r\n        textAlign = TextAlign.Center,\r\n\r\n        )\r\n}\r\n\r\n@Composable\r\nfun GetImage(idRes: Int= R.drawable.zalo, innerPadding: PaddingValues = PaddingValues(0.dp)) {\r\n    Image(painter = painterResource(id = idRes), contentDescription =\"\" , modifier = Modifier.width(60.dp))\r\n}\r\n@Composable\r\nfun getHeaderHome() {\r\n    Box(\r\n        modifier = Modifier.fillMaxWidth()\r\n            .background(color = Color.DarkGray)\r\n    ) {\r\n        Row(\r\n            verticalAlignment = Alignment.CenterVertically,  // Align items vertically centered in the Row\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n                .padding(top = 20.dp, start = 15.dp, end = 30.dp, bottom = 10.dp) // Added end padding\r\n        ) {\r\n            Image(\r\n                painter = painterResource(id = R.drawable.img),\r\n                contentDescription = \"Search Icon\",\r\n                modifier = Modifier\r\n                    .width(44.dp)\r\n                    .height(44.dp)\r\n            )\r\n            Spacer(modifier = Modifier.width(8.dp)) // Space between Image and Column\r\n            Column(\r\n                modifier = Modifier.weight(1f) // Column takes up the remaining space\r\n            ) {\r\n                Text(\r\n                    text = \"Cưm tứm đim\",\r\n                    style = TextStyle(\r\n//                        fontFamily = customFontFamily,\r\n                        fontSize = 28.sp,\r\n                        color = Color.White,\r\n                        lineHeight = 45.sp,\r\n\r\n                        ),\r\n                    modifier = Modifier.padding() // Center horizontally within Column\r\n                )\r\n//                Text(\r\n//                    text = \"BEAUTIFUL\",\r\n//                    style = TextStyle(\r\n////                        fontFamily = customFontFamily,\r\n//                        fontSize = 18.sp,\r\n//                        color = Color(\"#303030\".toColorInt()),\r\n//                        lineHeight = 45.sp\r\n//                    ),\r\n//                    modifier = Modifier.align(Alignment.CenterHorizontally) // Center horizontally within Column\r\n//                )\r\n            }\r\n            Spacer(modifier = Modifier.width(8.dp)) // Space between Column and new Image\r\n            Image(\r\n                painter = painterResource(id = R.drawable.bell), // Replace with your image resource\r\n                contentDescription = \"New Image\",\r\n                modifier = Modifier\r\n                    .width(24.dp)\r\n                    .height(24.dp)\r\n            )\r\n        }\r\n    }\r\n\r\n}\r\n\r\n@Composable\r\nfun Greeting1(name: String) {\r\n    Text(\r\n        text = \" $name\",\r\n        modifier = Modifier\r\n            .padding(\r\n\r\n                start = 10.dp,\r\n                end = 10.dp,\r\n                bottom = 0.dp\r\n            )\r\n            .fillMaxWidth(),\r\n\r\n        color = Color.LightGray,\r\n        fontSize = 20.sp,\r\n        fontWeight = FontWeight.Bold,\r\n        textAlign = TextAlign.Center,\r\n\r\n\r\n        )\r\n}\r\n@Composable\r\nfun Greeting2(name: String) {\r\n    Text(\r\n        text = \" $name\",\r\n        modifier = Modifier\r\n            .padding(\r\n                start = 10.dp,\r\n                end = 10.dp,\r\n            )\r\n            .fillMaxWidth(),\r\n\r\n        color = Color.LightGray,\r\n        fontSize = 20.sp,\r\n        fontWeight = FontWeight.Bold,\r\n        textAlign = TextAlign.Center,\r\n\r\n        )\r\n}\r\n\r\n@Composable\r\nfun Greeting3(name: String) {\r\n    Text(\r\n        text = \" $name\",\r\n        modifier = Modifier\r\n            .padding(\r\n                start = 10.dp,\r\n                end = 10.dp,\r\n                bottom = 40.dp,)\r\n            .fillMaxWidth(),\r\n\r\n        color = Color.LightGray,\r\n        fontSize = 20.sp,\r\n        fontWeight = FontWeight.Bold,\r\n        textAlign = TextAlign.Center,\r\n\r\n        )\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/kotlin_su24_group5/HomeAdmin.kt b/app/src/main/java/com/example/kotlin_su24_group5/HomeAdmin.kt
+--- a/app/src/main/java/com/example/kotlin_su24_group5/HomeAdmin.kt	(revision 596a8b8254e21ad4de7abd8083fa039621e2d272)
++++ b/app/src/main/java/com/example/kotlin_su24_group5/HomeAdmin.kt	(date 1717466464796)
+@@ -4,6 +4,7 @@
+ import android.os.Bundle
+ import androidx.activity.ComponentActivity
+ import androidx.activity.compose.setContent
++import androidx.activity.enableEdgeToEdge
+ 
+ import androidx.compose.foundation.Image
+ import androidx.compose.foundation.background
+@@ -48,29 +49,23 @@
+ import androidx.core.graphics.toColorInt
+ 
+ class HomeAdmin : ComponentActivity() {
+-    @OptIn(ExperimentalMaterial3Api::class)
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
++        enableEdgeToEdge()
+         setContent{
+-//
+             getLayoutHome()
+-
+         }
+-
+ 
+     }
+ }
+ 
+ 
+ @Preview(showBackground = true)
+-
+ @Composable
+ fun getLayoutHome(){
+     Column {
+         getHeaderHome()
+         GetLayout()
+-
+-
+     }
+ }
+ @Composable
+Index: app/src/main/java/com/example/kotlin_su24_group5/Test.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/kotlin_su24_group5/Test.kt b/app/src/main/java/com/example/kotlin_su24_group5/Test.kt
+new file mode 100644
+--- /dev/null	(date 1717503170666)
++++ b/app/src/main/java/com/example/kotlin_su24_group5/Test.kt	(date 1717503170666)
+@@ -0,0 +1,2 @@
++package com.example.kotlin_su24_group5
++
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.Kotlin_SU24_Group5\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".DetailProduct\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".Google\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".ManHinhChao\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".ManagerAdmin\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\"\r\n            android:label=\"@string/app_name\"\r\n            android:theme=\"@style/Theme.Kotlin_SU24_Group5\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 596a8b8254e21ad4de7abd8083fa039621e2d272)
++++ b/app/src/main/AndroidManifest.xml	(date 1717502880473)
+@@ -13,6 +13,42 @@
+         android:theme="@style/Theme.Kotlin_SU24_Group5"
+         tools:targetApi="31">
+         <activity
++            android:name=".Test.kt"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <activity
++            android:name=".testkt"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <activity
++            android:name=".Test"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <activity
++            android:name=".test"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <activity
+             android:name=".DetailProduct"
+             android:exported="true">
+             <intent-filter>
+@@ -44,6 +80,51 @@
+             android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <activity
++            android:name=".Login"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <activity
++            android:name=".SignUp"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <activity
++            android:name=".SignIn"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <activity
++            android:name=".Menu"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <activity
++            android:name=".HomeAdmin"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
+ 
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>

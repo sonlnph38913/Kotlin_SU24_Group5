@@ -54,7 +54,6 @@ class DetailProduct : ComponentActivity() {
         }
     }
 
-
 }
 @Preview
 @Composable
@@ -71,9 +70,7 @@ class DetailProduct : ComponentActivity() {
 
         }
     }
-
 }
-
 @Composable
 fun getHeaderDetail(){
     val context = LocalContext.current
