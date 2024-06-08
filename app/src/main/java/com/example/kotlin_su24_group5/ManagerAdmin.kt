@@ -1,13 +1,12 @@
 package com.example.kotlin_su24_group5
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,14 +21,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
-import com.example.kotlin_su24_group5.Dish.ListDish
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 class ManagerAdmin : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -99,14 +98,13 @@ fun getLoaiAdmin(){
 }
 @Composable
 fun getMonAnAdmin(){
-    val context = LocalContext.current
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .clickable { navigateToProScreen(context) }
             .fillMaxWidth()
             .background(color = Color("#252121".toColorInt()))
             .height(100.dp)
+
 
     ) {
         Image(painter = painterResource(id = R.drawable.logospl),
@@ -125,11 +123,4 @@ fun getMonAnAdmin(){
             modifier = Modifier.padding(start = 15.dp)
         )
     }
-
-}
-
-
-fun navigateToProScreen(context: Context) {
-    val intent = Intent(context, ListDish::class.java)
-    context.startActivity(intent)
 }
