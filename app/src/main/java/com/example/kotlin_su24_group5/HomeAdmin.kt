@@ -1,264 +1,175 @@
 package com.example.kotlin_su24_group5
-
-import android.media.Image
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-
-import androidx.compose.foundation.Image
+import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Shapes
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.core.graphics.toColorInt
-
-class HomeAdmin : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent{
-            getLayoutHome()
-        }
-
-    }
-}
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.example.kotlin_su24_group5.Dish.ListDish
+import com.google.android.libraries.mapsplatform.transportation.consumer.model.Route
 
 
-@Preview(showBackground = true)
+data class ListItem(val title: String, val description: String, val price:String)
+
 @Composable
-fun getLayoutHome(){
-    Column {
-        getHeaderHome()
-        GetLayout()
-    }
-}
-@Composable
-fun GetLayout( title: String = "Cưm tứm đim", innerPadding: PaddingValues = PaddingValues(0.dp)) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight()
-            .background(color = Color.Black)
-            .padding(
-                top = innerPadding.calculateTopPadding() + 10.dp,
-                start = 10.dp,
-                end = 10.dp,
-                bottom = 10.dp,
-            )
-        ,
+fun HomeScreen(navigationController: NavHostController) {
+
+    // Danh sách các mục để hiển thị
+    val itemsList = listOf(
+        ListItem("Đơn hàng CT2E22E", "Từ chối", "100.000 đ"),
+        ListItem("Đơn hàng CT2E2206", "Chấp nhận", "500.000 đ"),
+        ListItem("Đơn hàng CT2E23E", "", "100.800 đ"),
+        ListItem("Đơn hàng CT2E12E", "Từ chối", "101.854 đ"),
+        ListItem("Đơn hàng CT2E12E", "Chấp nhận", "103.454 đ"),
+        ListItem("Đơn hàng CT2E12E", "Từ chối", "201.354 đ"),
+        ListItem("Đơn hàng CT2E12E", "Chấp nhận", "301.8423 đ"),
+        ListItem("Đơn hàng CT2E12E", "Từ chối", "2301.42 đ"),
+        ListItem("Đơn hàng CT2E12E", "Từ chối", "3301.423 đ"),
+        ListItem("Đơn hàng CT2E12E", "Chấp nhận", "4501.123 đ"),
+
+        )
+
+    // Sử dụng LazyColumn để hiển thị danh sách
+
+
+    Column(  modifier = Modifier.
+    fillMaxSize().
+        padding(top = 10.dp).
+    background(Color(0xff252121)),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(10.dp)
-    ){
-
-        Greeting1(name = "Today : 19-05-2024 ")
-        Greeting2(name = "Số lượng đơn : 2")
-        Greeting3(name = "Doanh thu : 232,000đ" )
-        GetRowItem()
-        GetRowItem()
-        GetRowItem()
-        GetRowItem()
-        GetRowItem()
-        GetRowItem()
-
-//        SimpleButton()
-    }
-
-
-
-}
-
-@Composable
-fun GetRowItem(){
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(color = Color.DarkGray, shape = RoundedCornerShape((12.dp)))
-            .height(70.dp)
-            .padding(5.dp),
-        verticalAlignment = Alignment.CenterVertically,
-
-        ){
-//        Image(painter = painterResource(id = idRes), contentDescription ="" , modifier = Modifier.width(60.dp))
-//        Text(
-//            text = title,
-//            modifier = Modifier
-//                .weight(1f)
-//                .padding(50.dp, 0.dp, 0.dp, 0.dp),
-//            color = Color.White,
-//
-//            )
-
-    }
-}
-
-@Composable
-fun GetTextTitle(msg: String , innerPadding: PaddingValues = PaddingValues(0.dp)) {
-    Text(
-        text = msg,
-        modifier = Modifier
-            .padding(0.dp, 20.dp)
-            .fillMaxWidth(),
-        color = Color.White,
-        fontSize = 20.sp,
-        fontWeight = FontWeight.Bold,
-        textAlign = TextAlign.Center,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = "Today:6-8-2024 ",
+            style = MaterialTheme.typography.titleMedium,
+            color = Color.White,
+            modifier = Modifier.padding(top = 16.dp)
 
         )
-}
 
-@Composable
-fun GetImage(idRes: Int= R.drawable.zalo, innerPadding: PaddingValues = PaddingValues(0.dp)) {
-    Image(painter = painterResource(id = idRes), contentDescription ="" , modifier = Modifier.width(60.dp))
-}
-@Composable
-fun getHeaderHome() {
-    Box(
-        modifier = Modifier.fillMaxWidth()
-            .background(color = Color.DarkGray)
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,  // Align items vertically centered in the Row
+        Text(
+            text = "Số lượng đơn: 12",
+            style = MaterialTheme.typography.titleMedium,
+            color = Color.White,
+        )
+
+
+        Text(
+            text = "Doanh thu: 123.456.789 $",
+            style = MaterialTheme.typography.titleMedium,
+            color = Color.White,
+        )
+
+
+        LazyColumn(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 20.dp, start = 15.dp, end = 30.dp, bottom = 10.dp) // Added end padding
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.img),
-                contentDescription = "Search Icon",
-                modifier = Modifier
-                    .width(44.dp)
-                    .height(44.dp)
-            )
-            Spacer(modifier = Modifier.width(8.dp)) // Space between Image and Column
-            Column(
-                modifier = Modifier.weight(1f) // Column takes up the remaining space
-            ) {
-                Text(
-                    text = "Cưm tứm đim",
-                    style = TextStyle(
-//                        fontFamily = customFontFamily,
-                        fontSize = 28.sp,
-                        color = Color.White,
-                        lineHeight = 45.sp,
-
-                        ),
-                    modifier = Modifier.padding() // Center horizontally within Column
-                )
-//                Text(
-//                    text = "BEAUTIFUL",
-//                    style = TextStyle(
-////                        fontFamily = customFontFamily,
-//                        fontSize = 18.sp,
-//                        color = Color("#303030".toColorInt()),
-//                        lineHeight = 45.sp
-//                    ),
-//                    modifier = Modifier.align(Alignment.CenterHorizontally) // Center horizontally within Column
-//                )
+                .padding(top = 7.dp, start = 16.dp, end = 16.dp)
+                .fillMaxSize()
+                .background(Color(0xff252121))
+        )
+        {
+            items(itemsList) { item ->
+                ListItemView(item = item, navigationController = navigationController)
             }
-            Spacer(modifier = Modifier.width(8.dp)) // Space between Column and new Image
-            Image(
-                painter = painterResource(id = R.drawable.bell), // Replace with your image resource
-                contentDescription = "New Image",
-                modifier = Modifier
-                    .width(24.dp)
-                    .height(24.dp)
-            )
         }
     }
 
+
 }
 
 @Composable
-fun Greeting1(name: String) {
-    Text(
-        text = " $name",
+fun ListItemView(item: ListItem,navigationController: NavHostController) {
+    val context = LocalContext.current
+    Card(
+        shape = RoundedCornerShape(8.dp),
         modifier = Modifier
-            .padding(
+            .padding( top = 10.dp)
 
-                start = 10.dp,
-                end = 10.dp,
-                bottom = 0.dp
-            )
+            .height(110.dp)
             .fillMaxWidth(),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp) ,
+//        colors = CardDefaults.cardColors(containerColor = Color(0x2F2D2D))
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.DarkGray) // Màu nền của Card
 
-        color = Color.LightGray,
-        fontSize = 20.sp,
-        fontWeight = FontWeight.Bold,
-        textAlign = TextAlign.Center,
-
-
-        )
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(16.dp)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 15.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = item.title,
+                        style = MaterialTheme.typography.titleMedium,
+                        color = Color.White,
+                    )
+                    Text(
+                        text = "||",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = Color.White,
+                        modifier = Modifier
+                            .padding(start = 20.dp)
+                            .clickable {
+                            navDonHang(context)
+                            }
+                    )
+                    Text(
+                        text = item.price,
+                        style = MaterialTheme.typography.titleMedium,
+                        color = Color.White,
+                        modifier = Modifier.padding(end = 10.dp, bottom = 10.dp)
+                    )
+                }
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = "Trạng Thái",
+                        style = MaterialTheme.typography.titleMedium,
+                        color = Color.White,
+                    )
+                    Text(
+                        text = item.description,
+                        style = MaterialTheme.typography.titleMedium,
+                        color = Color.Red,
+                        modifier = Modifier.padding(end = 10.dp)
+                    )
+                }
+            }
+        }
+    }
 }
 @Composable
-fun Greeting2(name: String) {
-    Text(
-        text = " $name",
-        modifier = Modifier
-            .padding(
-                start = 10.dp,
-                end = 10.dp,
-            )
-            .fillMaxWidth(),
 
-        color = Color.LightGray,
-        fontSize = 20.sp,
-        fontWeight = FontWeight.Bold,
-        textAlign = TextAlign.Center,
-
-        )
+fun HomeScreenPreview() {
+    HomeScreen(navigationController = rememberNavController())
 }
 
-@Composable
-fun Greeting3(name: String) {
-    Text(
-        text = " $name",
-        modifier = Modifier
-            .padding(
-                start = 10.dp,
-                end = 10.dp,
-                bottom = 40.dp,)
-            .fillMaxWidth(),
-
-        color = Color.LightGray,
-        fontSize = 20.sp,
-        fontWeight = FontWeight.Bold,
-        textAlign = TextAlign.Center,
-
-        )
+fun navDonHang(context: Context){
+    val intent = Intent(context, DetailProduct::class.java)
+    context.startActivity(intent)
 }

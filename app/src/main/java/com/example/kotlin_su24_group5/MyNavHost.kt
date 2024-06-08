@@ -34,7 +34,7 @@ fun MyNavHost(
         builder = {
 
             composable(NavCons.home) {
-                getLayoutHome()
+                HomeScreen(navigationController = navHostController)
             }
             composable(NavCons.favorite) {
 
