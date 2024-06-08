@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -29,6 +31,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.kotlin_su24_group5.Dish.ListDish
 
 class ManagerAdmin : ComponentActivity() {
@@ -71,12 +75,14 @@ fun getContentMnAdmin(){
     }
 @Composable
 fun getLoaiAdmin(){
+    val context = LocalContext.current
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
             .background(color = Color("#252121".toColorInt()))
             .height(100.dp)
+            .clickable { navLoaiMon(context) }
 
 
     ) {
@@ -103,10 +109,10 @@ fun getMonAnAdmin(){
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .clickable { navigateToProScreen(context) }
             .fillMaxWidth()
             .background(color = Color("#252121".toColorInt()))
             .height(100.dp)
+            .clickable { navMonAn(context) }
 
     ) {
         Image(painter = painterResource(id = R.drawable.logospl),
@@ -125,11 +131,12 @@ fun getMonAnAdmin(){
             modifier = Modifier.padding(start = 15.dp)
         )
     }
-
 }
-
-
-fun navigateToProScreen(context: Context) {
+fun navLoaiMon(context: Context) {
+    val intent = Intent(context, QLLoaiMonScreen::class.java)
+    context.startActivity(intent)
+}
+fun navMonAn(context: Context){
     val intent = Intent(context, ListDish::class.java)
     context.startActivity(intent)
 }
