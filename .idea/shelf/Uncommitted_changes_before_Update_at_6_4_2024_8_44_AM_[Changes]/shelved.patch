@@ -1,0 +1,131 @@
+Index: app/src/main/java/com/example/kotlin_su24_group5/Login.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.kotlin_su24_group5\r\n\r\nimport android.content.Context\r\nimport android.content.Intent\r\nimport android.os.Bundle\r\nimport androidx.activity.ComponentActivity\r\nimport androidx.activity.compose.setContent\r\nimport androidx.compose.foundation.Image\r\n\r\nimport androidx.compose.foundation.background\r\nimport androidx.compose.foundation.border\r\nimport androidx.compose.foundation.clickable\r\nimport androidx.compose.foundation.layout.Arrangement\r\nimport androidx.compose.foundation.layout.Box\r\nimport androidx.compose.foundation.layout.Column\r\nimport androidx.compose.foundation.layout.fillMaxHeight\r\n\r\nimport androidx.compose.foundation.layout.fillMaxSize\r\nimport androidx.compose.foundation.layout.fillMaxWidth\r\nimport androidx.compose.foundation.layout.height\r\nimport androidx.compose.foundation.layout.padding\r\nimport androidx.compose.foundation.layout.size\r\nimport androidx.compose.material3.Button\r\nimport androidx.compose.material3.IconButton\r\nimport androidx.compose.material3.Text\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Alignment\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.graphics.Color\r\nimport androidx.compose.ui.platform.LocalContext\r\nimport androidx.compose.ui.res.painterResource\r\n\r\nimport androidx.compose.ui.text.font.FontWeight\r\nimport androidx.compose.ui.tooling.preview.Preview\r\nimport androidx.compose.ui.unit.dp\r\nimport androidx.compose.ui.unit.sp\r\nimport androidx.core.view.ViewCompat\r\nimport androidx.core.view.WindowInsetsCompat\r\nimport com.example.kotlin_su24_group5.ui.theme.Kotlin_SU24_Group5Theme\r\n\r\nclass Login : ComponentActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContent {\r\n            Login1()\r\n\r\n        }\r\n    }\r\n\r\n\r\n    @Composable\r\n    fun Login1(){\r\n        val context = LocalContext.current\r\n        Column (\r\n            modifier = Modifier.fillMaxSize()\r\n        ){\r\n            Column (\r\n                modifier = Modifier\r\n                    .fillMaxWidth()\r\n                    .height(500.dp)\r\n                    .background(Color.Black)\r\n                    .padding(top = 30.dp),\r\n                horizontalAlignment = Alignment.CenterHorizontally\r\n\r\n            ){\r\n                Text(\r\n                    text =\"Đăng Nhập\",\r\n                    fontSize = 32.sp,\r\n                    fontWeight = FontWeight.Bold,\r\n                    color = Color.White,\r\n                )\r\n                Image(modifier = Modifier.fillMaxSize(),  painter = painterResource(id = R.drawable.logo1),\r\n                    contentDescription = null)\r\n            }\r\n\r\n            Column(\r\n\r\n                modifier = Modifier\r\n                    .background(Color.DarkGray)\r\n                    .fillMaxSize(),\r\n                verticalArrangement = Arrangement.Center,\r\n                horizontalAlignment = Alignment.CenterHorizontally\r\n            ) {\r\n                    Image(\r\n                        painter = painterResource(id = R.drawable.google),\r\n                        contentDescription = null,\r\n                        modifier = Modifier.size(200.dp)\r\n                            .clickable { Next(context)}\r\n                    )\r\n            }\r\n\r\n        }\r\n\r\n\r\n\r\n    }\r\n\r\n\r\n\r\n\r\n    fun Next (context: Context) {\r\n        val intent = Intent(context, SignIn::class.java)\r\n        context.startActivity(intent)\r\n    }\r\n\r\n    @Preview(showBackground = true)\r\n    @Composable\r\n    fun GreetingPreview() {\r\n        Login1()\r\n    }\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/kotlin_su24_group5/Login.kt b/app/src/main/java/com/example/kotlin_su24_group5/Login.kt
+--- a/app/src/main/java/com/example/kotlin_su24_group5/Login.kt	(revision 28c0f9f5ccb9ff98e974df4c42e7d954b974fdc6)
++++ b/app/src/main/java/com/example/kotlin_su24_group5/Login.kt	(date 1717465177693)
+@@ -69,7 +69,7 @@
+                     fontWeight = FontWeight.Bold,
+                     color = Color.White,
+                 )
+-                Image(modifier = Modifier.fillMaxSize(),  painter = painterResource(id = R.drawable.logo1),
++                Image(modifier = Modifier.fillMaxSize(),  painter = painterResource(id = R.drawable.logospl),
+                     contentDescription = null)
+             }
+ 
+Index: app/src/main/java/com/example/kotlin_su24_group5/SignUp.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.kotlin_su24_group5\r\n\r\nimport android.os.Bundle\r\nimport androidx.activity.enableEdgeToEdge\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.core.view.ViewCompat\r\nimport androidx.core.view.WindowInsetsCompat\r\n\r\nclass DetailProduct : AppCompatActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/kotlin_su24_group5/SignUp.kt b/app/src/main/java/com/example/kotlin_su24_group5/SignUp.kt
+--- a/app/src/main/java/com/example/kotlin_su24_group5/SignUp.kt	(revision 28c0f9f5ccb9ff98e974df4c42e7d954b974fdc6)
++++ b/app/src/main/java/com/example/kotlin_su24_group5/SignUp.kt	(date 1717464429451)
+@@ -6,7 +6,7 @@
+ import androidx.core.view.ViewCompat
+ import androidx.core.view.WindowInsetsCompat
+ 
+-class DetailProduct : AppCompatActivity() {
++class SignUp : AppCompatActivity() {
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+     }
+Index: app/src/main/java/com/example/kotlin_su24_group5/ManHinhChao.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.kotlin_su24_group5\r\n\r\nimport android.content.Intent\r\nimport android.os.Bundle\r\nimport androidx.activity.ComponentActivity\r\nimport androidx.activity.compose.setContent\r\nimport androidx.compose.foundation.Image\r\nimport androidx.compose.foundation.background\r\nimport androidx.compose.foundation.layout.Box\r\nimport androidx.compose.foundation.layout.fillMaxSize\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Alignment\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.graphics.Color\r\nimport androidx.compose.ui.res.painterResource\r\nimport kotlinx.coroutines.*\r\nimport kotlin.coroutines.CoroutineContext\r\n\r\nclass ManHinhChao : ComponentActivity(), CoroutineScope {\r\n\r\n    private lateinit var job: Job\r\n    override val coroutineContext: CoroutineContext\r\n        get() = Dispatchers.Main + job\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        job = Job()\r\n        setContent {\r\n            Man1()\r\n        }\r\n        launch {\r\n            delay(3000) // Wait for 3 seconds\r\n            startActivity(Intent(this@ManHinhChao, Login::class.java))\r\n            finish()\r\n        }\r\n    }\r\n    override fun onDestroy() {\r\n        super.onDestroy()\r\n        job.cancel()\r\n    }\r\n}\r\n\r\n@Composable\r\nfun Man1() {\r\n    Box(\r\n        modifier = Modifier\r\n            .fillMaxSize()\r\n            .background(Color.Black),\r\n        contentAlignment = Alignment.Center\r\n    ) {\r\n        Image(\r\n            modifier = Modifier.fillMaxSize(),\r\n            painter = painterResource(id = R.drawable.logo1),\r\n            contentDescription = null\r\n        )\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/kotlin_su24_group5/ManHinhChao.kt b/app/src/main/java/com/example/kotlin_su24_group5/ManHinhChao.kt
+--- a/app/src/main/java/com/example/kotlin_su24_group5/ManHinhChao.kt	(revision 28c0f9f5ccb9ff98e974df4c42e7d954b974fdc6)
++++ b/app/src/main/java/com/example/kotlin_su24_group5/ManHinhChao.kt	(date 1717465152970)
+@@ -50,7 +50,7 @@
+     ) {
+         Image(
+             modifier = Modifier.fillMaxSize(),
+-            painter = painterResource(id = R.drawable.logo1),
++            painter = painterResource(id = R.drawable.logospl),
+             contentDescription = null
+         )
+     }
+Index: app/src/main/java/com/example/kotlin_su24_group5/MyNavHost.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.kotlin_su24_group5\r\n\r\nimport androidx.compose.foundation.background\r\nimport androidx.compose.material.icons.Icons\r\nimport androidx.compose.material.icons.rounded.AccountCircle\r\nimport androidx.compose.material.icons.rounded.DateRange\r\nimport androidx.compose.material.icons.rounded.Favorite\r\nimport androidx.compose.material.icons.rounded.FavoriteBorder\r\nimport androidx.compose.material.icons.rounded.Home\r\nimport androidx.compose.material.icons.rounded.Notifications\r\nimport androidx.compose.material.icons.rounded.ShoppingCart\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.graphics.Color\r\nimport androidx.compose.ui.graphics.vector.ImageVector\r\nimport androidx.navigation.NavHostController\r\nimport androidx.navigation.compose.NavHost\r\nimport androidx.navigation.compose.composable\r\n\r\n\r\n@Composable\r\nfun MyNavHost(\r\n    navHostController: NavHostController,\r\n    startDestination: String,\r\n) {\r\n\r\n\r\n//    val user=User()\r\n    val login=Login()\r\n\r\n\r\n\r\n    NavHost(navController = navHostController,\r\n        startDestination = startDestination,\r\n        modifier = Modifier.background(Color.Black),\r\n        builder = {\r\n\r\n            composable(NavCons.home) {\r\n                login.Login1()\r\n\r\n            }\r\n            composable(NavCons.favorite) {\r\n                login.Login1()\r\n\r\n            }\r\n            composable(NavCons.thongbao) {\r\n                login.Login1()\r\n\r\n            }\r\n            composable(NavCons.user) {\r\n                login.Login1()\r\n\r\n            }\r\n\r\n\r\n        })\r\n\r\n}\r\n\r\nsealed class Screens(val route: String, val imageVector: ImageVector, val label: String) {\r\n    object Home : Screens(\r\n        route = NavCons.home,\r\n        label = \"Home\",\r\n        imageVector = Icons.Rounded.Home\r\n    )\r\n\r\n    object Favorite : Screens(\r\n        route = NavCons.favorite,\r\n        label = \"Favorite\",\r\n        imageVector = Icons.Rounded.ShoppingCart\r\n    )\r\n    object Thongbao : Screens(\r\n        route = NavCons.thongbao,\r\n        label = \"Thông Báo\",\r\n        imageVector = Icons.Rounded.DateRange\r\n    )\r\n    object User : Screens(\r\n        route = NavCons.user,\r\n        label = \"User\",\r\n        imageVector = Icons.Rounded.AccountCircle\r\n    )\r\n\r\n\r\n}\r\n\r\nobject NavCons {\r\n    const val home = \"Home\"\r\n    const val favorite = \"Favorite\"\r\n    const val thongbao = \"Thongbao\"\r\n    const val user = \"User\"\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/kotlin_su24_group5/MyNavHost.kt b/app/src/main/java/com/example/kotlin_su24_group5/MyNavHost.kt
+--- a/app/src/main/java/com/example/kotlin_su24_group5/MyNavHost.kt	(revision 28c0f9f5ccb9ff98e974df4c42e7d954b974fdc6)
++++ b/app/src/main/java/com/example/kotlin_su24_group5/MyNavHost.kt	(date 1717465152949)
+@@ -25,9 +25,8 @@
+ ) {
+ 
+ 
+-//    val user=User()
+     val login=Login()
+-
++    val mnQuanLy = getLayoutManagerAD()
+ 
+ 
+     NavHost(navController = navHostController,
+@@ -40,7 +39,7 @@
+ 
+             }
+             composable(NavCons.favorite) {
+-                login.Login1()
++                mnQuanLy
+ 
+             }
+             composable(NavCons.thongbao) {
+Index: app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    alias(libs.plugins.androidApplication)\r\n    alias(libs.plugins.jetbrainsKotlinAndroid)\r\n}\r\n\r\nandroid {\r\n    namespace = \"com.example.kotlin_su24_group5\"\r\n    compileSdk = 34\r\n\r\n    defaultConfig {\r\n        applicationId = \"com.example.kotlin_su24_group5\"\r\n        minSdk = 24\r\n        targetSdk = 34\r\n        versionCode = 1\r\n        versionName = \"1.0\"\r\n\r\n        testInstrumentationRunner = \"androidx.test.runner.AndroidJUnitRunner\"\r\n        vectorDrawables {\r\n            useSupportLibrary = true\r\n        }\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            isMinifyEnabled = false\r\n            proguardFiles(\r\n                getDefaultProguardFile(\"proguard-android-optimize.txt\"),\r\n                \"proguard-rules.pro\"\r\n            )\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility = JavaVersion.VERSION_1_8\r\n        targetCompatibility = JavaVersion.VERSION_1_8\r\n    }\r\n    kotlinOptions {\r\n        jvmTarget = \"1.8\"\r\n    }\r\n    buildFeatures {\r\n        compose = true\r\n    }\r\n    composeOptions {\r\n        kotlinCompilerExtensionVersion = \"1.5.1\"\r\n    }\r\n    packaging {\r\n        resources {\r\n            excludes += \"/META-INF/{AL2.0,LGPL2.1}\"\r\n        }\r\n    }\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation(libs.androidx.core.ktx)\r\n    implementation(libs.androidx.lifecycle.runtime.ktx)\r\n    implementation(libs.androidx.activity.compose)\r\n    implementation(platform(libs.androidx.compose.bom))\r\n    implementation(libs.androidx.ui)\r\n    implementation(libs.androidx.ui.graphics)\r\n    implementation(libs.androidx.ui.tooling.preview)\r\n    implementation(libs.androidx.material3)\r\n    implementation(libs.androidx.appcompat)\r\n    implementation(libs.material)\r\n    implementation(libs.androidx.activity)\r\n    implementation(libs.androidx.navigation.compose)\r\n    testImplementation(libs.junit)\r\n    androidTestImplementation(libs.androidx.junit)\r\n    androidTestImplementation(libs.androidx.espresso.core)\r\n    androidTestImplementation(platform(libs.androidx.compose.bom))\r\n    androidTestImplementation(libs.androidx.ui.test.junit4)\r\n    debugImplementation(libs.androidx.ui.tooling)\r\n    debugImplementation(libs.androidx.ui.test.manifest)\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+--- a/app/build.gradle.kts	(revision 28c0f9f5ccb9ff98e974df4c42e7d954b974fdc6)
++++ b/app/build.gradle.kts	(date 1717464976579)
+@@ -63,6 +63,7 @@
+     implementation(libs.material)
+     implementation(libs.androidx.activity)
+     implementation(libs.androidx.navigation.compose)
++    implementation(libs.androidx.navigation.runtime.ktx)
+     testImplementation(libs.junit)
+     androidTestImplementation(libs.androidx.junit)
+     androidTestImplementation(libs.androidx.espresso.core)
+Index: gradle/libs.versions.toml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[versions]\r\nagp = \"8.3.2\"\r\nkotlin = \"1.9.0\"\r\ncoreKtx = \"1.13.1\"\r\njunit = \"4.13.2\"\r\njunitVersion = \"1.1.5\"\r\nespressoCore = \"3.5.1\"\r\nlifecycleRuntimeKtx = \"2.8.0\"\r\nactivityCompose = \"1.9.0\"\r\ncomposeBom = \"2023.08.00\"\r\nappcompat = \"1.7.0\"\r\nmaterial = \"1.12.0\"\r\nactivity = \"1.9.0\"\r\nnavigationCompose = \"2.7.7\"\r\n\r\n[libraries]\r\nandroidx-core-ktx = { group = \"androidx.core\", name = \"core-ktx\", version.ref = \"coreKtx\" }\r\njunit = { group = \"junit\", name = \"junit\", version.ref = \"junit\" }\r\nandroidx-junit = { group = \"androidx.test.ext\", name = \"junit\", version.ref = \"junitVersion\" }\r\nandroidx-espresso-core = { group = \"androidx.test.espresso\", name = \"espresso-core\", version.ref = \"espressoCore\" }\r\nandroidx-lifecycle-runtime-ktx = { group = \"androidx.lifecycle\", name = \"lifecycle-runtime-ktx\", version.ref = \"lifecycleRuntimeKtx\" }\r\nandroidx-activity-compose = { group = \"androidx.activity\", name = \"activity-compose\", version.ref = \"activityCompose\" }\r\nandroidx-compose-bom = { group = \"androidx.compose\", name = \"compose-bom\", version.ref = \"composeBom\" }\r\nandroidx-ui = { group = \"androidx.compose.ui\", name = \"ui\" }\r\nandroidx-ui-graphics = { group = \"androidx.compose.ui\", name = \"ui-graphics\" }\r\nandroidx-ui-tooling = { group = \"androidx.compose.ui\", name = \"ui-tooling\" }\r\nandroidx-ui-tooling-preview = { group = \"androidx.compose.ui\", name = \"ui-tooling-preview\" }\r\nandroidx-ui-test-manifest = { group = \"androidx.compose.ui\", name = \"ui-test-manifest\" }\r\nandroidx-ui-test-junit4 = { group = \"androidx.compose.ui\", name = \"ui-test-junit4\" }\r\nandroidx-material3 = { group = \"androidx.compose.material3\", name = \"material3\" }\r\nandroidx-appcompat = { group = \"androidx.appcompat\", name = \"appcompat\", version.ref = \"appcompat\" }\r\nmaterial = { group = \"com.google.android.material\", name = \"material\", version.ref = \"material\" }\r\nandroidx-activity = { group = \"androidx.activity\", name = \"activity\", version.ref = \"activity\" }\r\nandroidx-navigation-compose = { group = \"androidx.navigation\", name = \"navigation-compose\", version.ref = \"navigationCompose\" }\r\n\r\n[plugins]\r\nandroidApplication = { id = \"com.android.application\", version.ref = \"agp\" }\r\njetbrainsKotlinAndroid = { id = \"org.jetbrains.kotlin.android\", version.ref = \"kotlin\" }\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+--- a/gradle/libs.versions.toml	(revision 28c0f9f5ccb9ff98e974df4c42e7d954b974fdc6)
++++ b/gradle/libs.versions.toml	(date 1717464976507)
+@@ -12,6 +12,7 @@
+ material = "1.12.0"
+ activity = "1.9.0"
+ navigationCompose = "2.7.7"
++navigationRuntimeKtx = "2.7.7"
+ 
+ [libraries]
+ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+@@ -32,6 +33,7 @@
+ material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+ androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+ androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
++androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
+ 
+ [plugins]
+ androidApplication = { id = "com.android.application", version.ref = "agp" }

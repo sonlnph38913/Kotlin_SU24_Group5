@@ -1,0 +1,553 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.Kotlin_SU24_Group5\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".Test\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".DetailProduct\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".Login\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".SignIn\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".SignUp\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".Menu\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".Google\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".Support\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".HomeAdmin\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".ManHinhChao\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".ManagerAdmin\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\"\r\n            android:label=\"@string/app_name\"\r\n            android:theme=\"@style/Theme.Kotlin_SU24_Group5\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 6783e27802f4d5c92bc73e8dad9e3d5cb244feaa)
++++ b/app/src/main/AndroidManifest.xml	(date 1717693412689)
+@@ -13,7 +13,7 @@
+         android:theme="@style/Theme.Kotlin_SU24_Group5"
+         tools:targetApi="31">
+         <activity
+-            android:name=".Test"
++            android:name=".QLLoaiMonScreen"
+             android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+@@ -21,6 +21,7 @@
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+         </activity>
++
+         <activity
+             android:name=".DetailProduct"
+             android:exported="true">
+Index: app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    alias(libs.plugins.androidApplication)\r\n    alias(libs.plugins.jetbrainsKotlinAndroid)\r\n    kotlin(\"kapt\")\r\n}\r\n\r\nandroid {\r\n    namespace = \"com.example.kotlin_su24_group5\"\r\n    compileSdk = 34\r\n\r\n    defaultConfig {\r\n        applicationId = \"com.example.kotlin_su24_group5\"\r\n        minSdk = 24\r\n        targetSdk = 34\r\n        versionCode = 1\r\n        versionName = \"1.0\"\r\n\r\n        testInstrumentationRunner = \"androidx.test.runner.AndroidJUnitRunner\"\r\n        vectorDrawables {\r\n            useSupportLibrary = true\r\n        }\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            isMinifyEnabled = false\r\n            proguardFiles(\r\n                getDefaultProguardFile(\"proguard-android-optimize.txt\"),\r\n                \"proguard-rules.pro\"\r\n            )\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility = JavaVersion.VERSION_1_8\r\n        targetCompatibility = JavaVersion.VERSION_1_8\r\n    }\r\n    kotlinOptions {\r\n        jvmTarget = \"1.8\"\r\n    }\r\n    buildFeatures {\r\n        compose = true\r\n    }\r\n    composeOptions {\r\n        kotlinCompilerExtensionVersion = \"1.5.1\"\r\n    }\r\n    packaging {\r\n        resources {\r\n            excludes += \"/META-INF/{AL2.0,LGPL2.1}\"\r\n        }\r\n    }\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation(libs.androidx.core.ktx)\r\n    implementation(libs.androidx.lifecycle.runtime.ktx)\r\n    implementation(libs.androidx.activity.compose)\r\n    implementation(platform(libs.androidx.compose.bom))\r\n    implementation(libs.androidx.ui)\r\n    implementation(libs.androidx.ui.graphics)\r\n    implementation(libs.androidx.ui.tooling.preview)\r\n    implementation(libs.androidx.material3)\r\n    implementation(libs.androidx.appcompat)\r\n    implementation(libs.material)\r\n    implementation(libs.androidx.activity)\r\n    implementation(libs.androidx.navigation.compose)\r\n    implementation(libs.androidx.navigation.runtime.ktx)\r\n    testImplementation(libs.junit)\r\n    androidTestImplementation(libs.androidx.junit)\r\n    androidTestImplementation(libs.androidx.espresso.core)\r\n    androidTestImplementation(platform(libs.androidx.compose.bom))\r\n    androidTestImplementation(libs.androidx.ui.test.junit4)\r\n    debugImplementation(libs.androidx.ui.tooling)\r\n    debugImplementation(libs.androidx.ui.test.manifest)\r\n\r\n    implementation (\"androidx.room:room-runtime:2.6.1\")\r\n    kapt (\"androidx.room:room-compiler:2.6.1\")\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+--- a/app/build.gradle.kts	(revision 6783e27802f4d5c92bc73e8dad9e3d5cb244feaa)
++++ b/app/build.gradle.kts	(date 1717691160477)
+@@ -75,6 +75,9 @@
+ 
+     implementation ("androidx.room:room-runtime:2.6.1")
+     kapt ("androidx.room:room-compiler:2.6.1")
++    implementation ("androidx.activity:activity-compose:1.3.0")
++    implementation ("androidx.compose.material3:material3:1.0.0")
++    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
+ 
+ 
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/kotlin_su24_group5/DBHelper.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.kotlin_su24_group5\r\n\r\nimport androidx.room.Dao\r\nimport androidx.room.Database\r\nimport androidx.room.Delete\r\nimport androidx.room.Insert\r\nimport androidx.room.Query\r\nimport androidx.room.RoomDatabase\r\nimport androidx.room.Update\r\n\r\n@Database(entities = arrayOf(ProductModel::class), version = 1)\r\nabstract class ProductDB : RoomDatabase() {\r\n    abstract fun productDAO(): ProductDao\r\n}\r\n\r\n@Dao\r\ninterface ProductDao {\r\n    @Query(\"SELECT * FROM Product\")\r\n    fun getAll(): List<ProductModel>\r\n\r\n    @Query(\"SELECT * FROM Product WHERE idPro IN (:proIds)\")\r\n    fun loadAllByIds(proIds: IntArray): List<ProductModel>\r\n\r\n    @Insert\r\n    fun insert(vararg product: ProductModel)\r\n\r\n    @Delete\r\n    fun delete(product: ProductModel)\r\n    @Query(\"DELETE FROM Product WHERE idPro = :pid\")\r\n    fun deleteProduct(pid: Int)\r\n    @Update\r\n    fun update(product: ProductModel)\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/kotlin_su24_group5/DBHelper.kt b/app/src/main/java/com/example/kotlin_su24_group5/DBHelper.kt
+--- a/app/src/main/java/com/example/kotlin_su24_group5/DBHelper.kt	(revision 6783e27802f4d5c92bc73e8dad9e3d5cb244feaa)
++++ b/app/src/main/java/com/example/kotlin_su24_group5/DBHelper.kt	(date 1717738872249)
+@@ -30,4 +30,29 @@
+     fun deleteProduct(pid: Int)
+     @Update
+     fun update(product: ProductModel)
+-}
+\ No newline at end of file
++}
++
++@Database(entities = [LoaiModel::class], version = 1)
++abstract class LoaiMonDB : RoomDatabase() {
++    abstract fun LoaiMonDao(): LoaiMonDao
++}
++@Dao
++interface LoaiMonDao{
++    @Query("SELECT * FROM LoaiMon")
++    fun getAllLoaiMon(): List<LoaiModel>
++
++    @Query("SELECT * FROM LoaiMon WHERE idLoai IN (:loaiIds)")
++    fun loadAllByIds(loaiIds: IntArray): List<LoaiModel>
++
++    @Insert
++    fun insert(vararg loaimon: LoaiModel)
++
++    @Delete
++    fun delete(loaimon: LoaiModel)
++
++    @Query("DELETE FROM LoaiMon WHERE idLoai = :lid")
++    fun deleteLoaiMon(lid: Int)
++
++    @Update
++    fun update(loaimon: LoaiModel)
++}
+Index: app/src/main/java/com/example/kotlin_su24_group5/ManagerAdmin.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.kotlin_su24_group5\r\n\r\nimport android.os.Bundle\r\nimport androidx.activity.ComponentActivity\r\nimport androidx.activity.compose.setContent\r\nimport androidx.activity.enableEdgeToEdge\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.compose.foundation.Image\r\nimport androidx.compose.foundation.background\r\nimport androidx.compose.foundation.layout.Box\r\nimport androidx.compose.foundation.layout.Column\r\nimport androidx.compose.foundation.layout.Row\r\nimport androidx.compose.foundation.layout.fillMaxHeight\r\nimport androidx.compose.foundation.layout.fillMaxWidth\r\nimport androidx.compose.foundation.layout.height\r\nimport androidx.compose.foundation.layout.padding\r\nimport androidx.compose.foundation.layout.size\r\nimport androidx.compose.foundation.lazy.LazyColumn\r\nimport androidx.compose.material3.Text\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Alignment\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.graphics.Color\r\nimport androidx.compose.ui.res.painterResource\r\nimport androidx.compose.ui.text.TextStyle\r\nimport androidx.compose.ui.tooling.preview.Preview\r\nimport androidx.compose.ui.unit.dp\r\nimport androidx.compose.ui.unit.sp\r\nimport androidx.core.graphics.toColorInt\r\nimport androidx.core.view.ViewCompat\r\nimport androidx.core.view.WindowInsetsCompat\r\n\r\nclass ManagerAdmin : ComponentActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContent {\r\n        getLayoutManagerAD()\r\n        }\r\n    }\r\n\r\n\r\n}\r\n@Preview\r\n@Composable\r\nfun getLayoutManagerAD(){\r\n    Box (modifier = Modifier\r\n        .background(color = Color(\"#252121\".toColorInt()))\r\n        .fillMaxHeight()){\r\n        LazyColumn (\r\n        ){\r\n            item { getHeaderDetail() }\r\n            item { getContentMnAdmin() }\r\n\r\n        }\r\n    }\r\n\r\n}\r\n@Composable\r\nfun getContentMnAdmin(){\r\n    Column (\r\n        modifier = Modifier\r\n            .background(color = Color(\"#252121\".toColorInt()))\r\n\r\n    ) {\r\n        getKC()\r\n        getLoaiAdmin()\r\n        getMonAnAdmin()\r\n\r\n    }\r\n    }\r\n@Composable\r\nfun getLoaiAdmin(){\r\n    Row(\r\n        verticalAlignment = Alignment.CenterVertically,\r\n        modifier = Modifier\r\n            .fillMaxWidth()\r\n            .background(color = Color(\"#252121\".toColorInt()))\r\n            .height(100.dp)\r\n\r\n\r\n    ) {\r\n        Image(painter = painterResource(id = R.drawable.logospl),\r\n            contentDescription = \"logo\",\r\n            modifier = Modifier\r\n                .size(60.dp)\r\n                .padding(start = 10.dp)\r\n        )\r\n        Text(text = \"Quản Lý Loại Món Ăn\",\r\n            style = TextStyle(\r\n                color = Color(\"#FFFFFF\".toColorInt()),\r\n                fontSize = 18.sp,\r\n                lineHeight = 22.sp,\r\n\r\n                ),\r\n            modifier = Modifier.padding(start = 15.dp)\r\n        )\r\n    }\r\n}\r\n@Composable\r\nfun getMonAnAdmin(){\r\n    Row(\r\n        verticalAlignment = Alignment.CenterVertically,\r\n        modifier = Modifier\r\n            .fillMaxWidth()\r\n            .background(color = Color(\"#252121\".toColorInt()))\r\n            .height(100.dp)\r\n\r\n\r\n    ) {\r\n        Image(painter = painterResource(id = R.drawable.logospl),\r\n            contentDescription = \"logo\",\r\n            modifier = Modifier\r\n                .size(60.dp)\r\n                .padding(start = 10.dp)\r\n        )\r\n        Text(text = \"Quản Lý Món Ăn\",\r\n            style = TextStyle(\r\n                color = Color(\"#FFFFFF\".toColorInt()),\r\n                fontSize = 18.sp,\r\n                lineHeight = 22.sp,\r\n\r\n                ),\r\n            modifier = Modifier.padding(start = 15.dp)\r\n        )\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/kotlin_su24_group5/ManagerAdmin.kt b/app/src/main/java/com/example/kotlin_su24_group5/ManagerAdmin.kt
+--- a/app/src/main/java/com/example/kotlin_su24_group5/ManagerAdmin.kt	(revision 6783e27802f4d5c92bc73e8dad9e3d5cb244feaa)
++++ b/app/src/main/java/com/example/kotlin_su24_group5/ManagerAdmin.kt	(date 1717739336865)
+@@ -1,5 +1,7 @@
+ package com.example.kotlin_su24_group5
+ 
++import android.content.Context
++import android.content.Intent
+ import android.os.Bundle
+ import androidx.activity.ComponentActivity
+ import androidx.activity.compose.setContent
+@@ -7,6 +9,7 @@
+ import androidx.appcompat.app.AppCompatActivity
+ import androidx.compose.foundation.Image
+ import androidx.compose.foundation.background
++import androidx.compose.foundation.clickable
+ import androidx.compose.foundation.layout.Box
+ import androidx.compose.foundation.layout.Column
+ import androidx.compose.foundation.layout.Row
+@@ -21,6 +24,7 @@
+ import androidx.compose.ui.Alignment
+ import androidx.compose.ui.Modifier
+ import androidx.compose.ui.graphics.Color
++import androidx.compose.ui.platform.LocalContext
+ import androidx.compose.ui.res.painterResource
+ import androidx.compose.ui.text.TextStyle
+ import androidx.compose.ui.tooling.preview.Preview
+@@ -70,12 +74,14 @@
+     }
+ @Composable
+ fun getLoaiAdmin(){
++    val context = LocalContext.current
+     Row(
+         verticalAlignment = Alignment.CenterVertically,
+         modifier = Modifier
+             .fillMaxWidth()
+             .background(color = Color("#252121".toColorInt()))
+             .height(100.dp)
++            .clickable { NavScreenLoai(context) }
+ 
+ 
+     ) {
+@@ -123,4 +129,8 @@
+             modifier = Modifier.padding(start = 15.dp)
+         )
+     }
++}
++fun NavScreenLoai(context: Context) {
++    val intent = Intent(context, QLLoaiMonScreen::class.java)
++    context.startActivity(intent)
+ }
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_delete.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_delete.xml b/app/src/main/res/drawable/ic_delete.xml
+new file mode 100644
+--- /dev/null	(date 1717686327799)
++++ b/app/src/main/res/drawable/ic_delete.xml	(date 1717686327799)
+@@ -0,0 +1,5 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="40dp" android:tint="#FFFFFF" android:viewportHeight="24" android:viewportWidth="24" android:width="40dp">
++      
++    <path android:fillColor="@android:color/white" android:pathData="M6,19c0,1.1 0.9,2 2,2h8c1.1,0 2,-0.9 2,-2V7H6v12zM19,4h-3.5l-1,-1h-5l-1,1H5v2h14V4z"/>
++    
++</vector>
+Index: app/src/main/java/com/example/kotlin_su24_group5/LoaiModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/kotlin_su24_group5/LoaiModel.kt b/app/src/main/java/com/example/kotlin_su24_group5/LoaiModel.kt
+new file mode 100644
+--- /dev/null	(date 1717724925389)
++++ b/app/src/main/java/com/example/kotlin_su24_group5/LoaiModel.kt	(date 1717724925389)
+@@ -0,0 +1,15 @@
++package com.example.kotlin_su24_group5
++
++import androidx.room.ColumnInfo
++import androidx.room.Entity
++import androidx.room.PrimaryKey
++
++@Entity(tableName = "LoaiMon")
++data class LoaiModel(
++    @PrimaryKey(autoGenerate = true) var idLoai: Int = 0,
++    @ColumnInfo(name = "tenLoai") var tenLoai: String?
++) {
++    fun getThongtinLoaiMon(): String {
++        return "Ten Loai: $tenLoai \n"
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_edit.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_edit.xml b/app/src/main/res/drawable/ic_edit.xml
+new file mode 100644
+--- /dev/null	(date 1717686346064)
++++ b/app/src/main/res/drawable/ic_edit.xml	(date 1717686346064)
+@@ -0,0 +1,5 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="40dp" android:tint="#FFFFFF" android:viewportHeight="24" android:viewportWidth="24" android:width="40dp">
++      
++    <path android:fillColor="@android:color/white" android:pathData="M3,17.25V21h3.75L17.81,9.94l-3.75,-3.75L3,17.25zM20.71,7.04c0.39,-0.39 0.39,-1.02 0,-1.41l-2.34,-2.34c-0.39,-0.39 -1.02,-0.39 -1.41,0l-1.83,1.83 3.75,3.75 1.83,-1.83z"/>
++    
++</vector>
+Index: .idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"deploymentTargetSelector\">\r\n    <selectionStates>\r\n      <SelectionState runConfigName=\"app\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"ManHinhChao\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n    </selectionStates>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+--- a/.idea/deploymentTargetSelector.xml	(revision 6783e27802f4d5c92bc73e8dad9e3d5cb244feaa)
++++ b/.idea/deploymentTargetSelector.xml	(date 1717691474959)
+@@ -8,6 +8,18 @@
+       <SelectionState runConfigName="ManHinhChao">
+         <option name="selectionMode" value="DROPDOWN" />
+       </SelectionState>
++      <SelectionState runConfigName="QLLoaiMonScrenn">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
++      <SelectionState runConfigName="QLLoaiMonScreen">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
++      <SelectionState runConfigName="Menu">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
++      <SelectionState runConfigName="QLLoaiMonScreen (1)">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
+     </selectionStates>
+   </component>
+ </project>
+\ No newline at end of file
+Index: app/src/main/java/com/example/kotlin_su24_group5/QLLoaiMonScrenn.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/kotlin_su24_group5/QLLoaiMonScrenn.kt b/app/src/main/java/com/example/kotlin_su24_group5/QLLoaiMonScrenn.kt
+new file mode 100644
+--- /dev/null	(date 1717738960744)
++++ b/app/src/main/java/com/example/kotlin_su24_group5/QLLoaiMonScrenn.kt	(date 1717738960744)
+@@ -0,0 +1,293 @@
++package com.example.kotlin_su24_group5
++
++import android.os.Bundle
++import android.widget.Toast
++import androidx.activity.ComponentActivity
++import androidx.activity.compose.setContent
++import androidx.compose.foundation.Image
++import androidx.compose.foundation.background
++import androidx.compose.foundation.clickable
++import androidx.compose.foundation.layout.*
++import androidx.compose.foundation.lazy.LazyColumn
++import androidx.compose.foundation.lazy.items
++import androidx.compose.foundation.shape.RoundedCornerShape
++import androidx.compose.material3.*
++import androidx.compose.runtime.*
++import androidx.compose.ui.Alignment
++import androidx.compose.ui.Modifier
++import androidx.compose.ui.graphics.Color
++import androidx.compose.ui.platform.LocalContext
++import androidx.compose.ui.res.painterResource
++import androidx.compose.ui.text.TextStyle
++import androidx.compose.ui.unit.dp
++import androidx.compose.ui.unit.sp
++import androidx.compose.ui.window.Dialog
++import androidx.core.graphics.toColorInt
++import androidx.room.Room
++import com.example.kotlin_su24_group5.ui.theme.Kotlin_SU24_Group5Theme
++import kotlinx.coroutines.Dispatchers
++import kotlinx.coroutines.launch
++
++class QLLoaiMonScreen : ComponentActivity() {
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContent {
++            Kotlin_SU24_Group5Theme {
++                Scaffold(
++                    modifier = Modifier
++                        .safeDrawingPadding()
++                        .fillMaxSize()
++                ) { innerPadding ->
++                    GreetingQLMon(
++                        name = "Quản lý Loại Món",
++                        modifier = Modifier.padding(innerPadding)
++                    )
++                }
++            }
++        }
++    }
++}
++
++@OptIn(ExperimentalMaterial3Api::class)
++@Composable
++fun GreetingQLMon(name: String, modifier: Modifier = Modifier) {
++    val context = LocalContext.current
++    val db = remember {
++        Room.databaseBuilder(
++            context,
++            LoaiMonDB::class.java, "LoaiMon"
++        ).allowMainThreadQueries().build()
++    }
++
++    var listLoaiMons by remember { mutableStateOf(listOf<LoaiModel>()) }
++    var tenloai by remember { mutableStateOf("") }
++    val scope = rememberCoroutineScope()
++    var showDialogUpdate by remember { mutableStateOf(false) }
++    var showDialog by remember { mutableStateOf(false) }
++    var selectedLoaiMon by remember { mutableStateOf<LoaiModel?>(null) }
++    var selectedLoaiMonUp by remember { mutableStateOf<LoaiModel?>(null) }
++
++    LaunchedEffect(Unit) {
++        scope.launch(Dispatchers.IO) {
++            listLoaiMons = db.LoaiMonDao().getAllLoaiMon()
++        }
++    }
++
++    Column(
++        modifier = Modifier
++            .fillMaxWidth()
++            .fillMaxSize()
++            .background(color = Color("#252121".toColorInt()))
++    ) {
++        getHeaderDetail()
++        getKC()
++        OutlinedTextField(
++            value = tenloai,
++            onValueChange = { tenloai = it },
++            label = { Text(text = "Tên Loại Món") },
++            textStyle = TextStyle(color = Color.Black), // Set text color to black
++            colors = TextFieldDefaults.outlinedTextFieldColors(
++                focusedBorderColor = Color.Black,
++                unfocusedBorderColor = Color.Black,
++                cursorColor = Color.Black,
++                focusedTextColor = Color.Black,
++                containerColor = Color.White
++            ),
++            modifier = Modifier
++                .fillMaxWidth()
++                .padding(10.dp)
++        )
++        Button(
++            onClick = {
++                if (tenloai.trim().isEmpty()) {
++                    Toast.makeText(context, "Bạn Chưa Điền Đủ Thông Tin!", Toast.LENGTH_SHORT)
++                        .show()
++                } else {
++                    scope.launch(Dispatchers.IO) {
++                        try {
++                            db.LoaiMonDao().insert(
++                                LoaiModel(
++                                    tenLoai = tenloai
++                                )
++                            )
++                            listLoaiMons = db.LoaiMonDao().getAllLoaiMon()
++                            tenloai = "" // Clear input field
++                        } catch (e: Exception) {
++                            e.printStackTrace()
++                            scope.launch(Dispatchers.Main) {
++                                Toast.makeText(
++                                    context,
++                                    "Lỗi khi thêm loại món!",
++                                    Toast.LENGTH_SHORT
++                                ).show()
++                            }
++                        }
++                    }
++                }
++            },
++            modifier = Modifier
++                .align(Alignment.CenterHorizontally)
++                .padding(bottom = 16.dp)
++        ) {
++            Text(text = "Thêm Loại Món")
++        }
++        LazyColumn {
++            items(listLoaiMons) { loaiMon ->
++                Row(
++                    modifier = Modifier
++                        .padding(10.dp)
++                        .background(
++                            color = Color("#2f2d2d".toColorInt()),
++                            shape = RoundedCornerShape(8.dp)
++                        )
++                        .padding(8.dp)
++                ) {
++                    Text(
++                        text = loaiMon.idLoai.toString(),
++                        style = TextStyle(
++                            color = Color("#FFFFFF".toColorInt()),
++                            fontSize = 24.sp
++                        ),
++                        modifier = Modifier.weight(1f)
++                    )
++
++                    Text(
++                        text = loaiMon.tenLoai ?: "",
++                        style = TextStyle(
++                            color = Color("#FFFFFF".toColorInt()),
++                            fontSize = 24.sp
++                        ),
++                        modifier = Modifier.weight(2f)
++                    )
++
++                    Image(
++                        painter = painterResource(id = R.drawable.ic_delete),
++                        contentDescription = "delete Mon",
++                        modifier = Modifier
++                            .weight(1f)
++                            .align(Alignment.CenterVertically)
++                            .clickable {
++                                db.LoaiMonDao().deleteLoaiMon(loaiMon.idLoai)
++                                listLoaiMons = db.LoaiMonDao().getAllLoaiMon()
++                            }
++                    )
++                    Image(
++                        painter = painterResource(id = R.drawable.ic_edit),
++                        contentDescription = "update Mon",
++                        modifier = Modifier
++                            .align(Alignment.CenterVertically)
++                            .clickable {
++                                selectedLoaiMonUp = loaiMon
++                            }
++                    )
++                }
++            }
++        }
++
++
++    }
++        //dialog update
++    if (selectedLoaiMonUp != null) {
++        ShowEditLoaiDialog(
++            loaimon = selectedLoaiMonUp!!,
++            onConfirmation = { editedLoai ->
++                db.LoaiMonDao().update(editedLoai)
++                listLoaiMons = db.LoaiMonDao().getAllLoaiMon()
++                selectedLoaiMonUp = null
++            },
++            onCancel = {
++               selectedLoaiMonUp = null
++            }
++        )
++    }
++    //dialog xóa
++            if (showDialog && selectedLoaiMon != null) {
++            AlertDialog(
++                onDismissRequest = { showDialog = false },
++                title = { Text(text = "Xác nhận") },
++                text = { Text(text = "Bạn có chắc chắn muốn xóa loại món này?") },
++                confirmButton = {
++                    TextButton(
++                        onClick = {
++                            scope.launch(Dispatchers.IO) {
++                                try {
++                                    db.LoaiMonDao().deleteLoaiMon(selectedLoaiMon!!.idLoai)
++                                    listLoaiMons = db.LoaiMonDao().getAllLoaiMon()
++                                    scope.launch(Dispatchers.Main) {
++                                        Toast.makeText(context, "Xóa thành công!", Toast.LENGTH_SHORT).show()
++                                    }
++                                } catch (e: Exception) {
++                                    e.printStackTrace()
++                                    scope.launch(Dispatchers.Main) {
++                                        Toast.makeText(context, "Lỗi khi xóa loại món!", Toast.LENGTH_SHORT).show()
++                                    }
++                                }
++                            }
++                            showDialog = false
++                            selectedLoaiMon = null
++                        }
++                    ) {
++                        Text("Xóa")
++                    }
++                },
++                dismissButton = {
++                    TextButton(
++                        onClick = {
++                            showDialog = false
++                            selectedLoaiMon = null
++                        }
++                    ) {
++                        Text("Hủy")
++                    }
++                }
++            )
++        }
++}
++@Composable
++fun ShowEditLoaiDialog(
++    loaimon: LoaiModel,
++    onConfirmation: (LoaiModel) -> Unit,
++    onCancel: () -> Unit
++) {
++    var editedName by remember { mutableStateOf(loaimon.tenLoai ?: "") }
++
++
++    Dialog(onDismissRequest = onCancel) {
++        Card {
++            Column(
++                modifier = Modifier.padding(16.dp)
++            ) {
++                OutlinedTextField(
++                    value = editedName,
++                    onValueChange = { editedName = it },
++                    label = { Text("Tên Loại Món") },
++                    modifier = Modifier.fillMaxWidth()
++                )
++
++                }
++                Row(
++                    modifier = Modifier.fillMaxWidth(),
++                    horizontalArrangement = Arrangement.End,
++                    verticalAlignment = Alignment.CenterVertically
++                ) {
++                    Button(
++                        onClick = {
++                            val editedLoaiMon = loaimon.copy(
++                                tenLoai = editedName,
++                            )
++                            onConfirmation(editedLoaiMon)
++                        },
++                        modifier = Modifier.padding(end = 8.dp)
++                    ) {
++                        Text("Lưu")
++                    }
++                    Button(
++                        onClick = onCancel,
++                        modifier = Modifier.padding(end = 8.dp)
++                    ) {
++                        Text("Hủy")
++                    }
++                }
++            }
++        }
++    }
+Index: app/src/main/res/drawable/ic_add.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_add.xml b/app/src/main/res/drawable/ic_add.xml
+new file mode 100644
+--- /dev/null	(date 1717688241260)
++++ b/app/src/main/res/drawable/ic_add.xml	(date 1717688241260)
+@@ -0,0 +1,5 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="40dp" android:tint="#F10A0A" android:viewportHeight="24" android:viewportWidth="24" android:width="40dp">
++      
++    <path android:fillColor="@android:color/white" android:pathData="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
++    
++</vector>

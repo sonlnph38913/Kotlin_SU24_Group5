@@ -333,4 +333,8 @@ fun BackMain (context: Context) {
     val intent = Intent(context, Menu::class.java)
     context.startActivity(intent)
 }
+fun BackManagerAdmin (context: Context) {
+    val intent = Intent(context, ManagerAdmin::class.java)
+    context.startActivity(intent)
+}
 

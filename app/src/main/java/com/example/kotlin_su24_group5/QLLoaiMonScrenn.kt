@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -79,7 +81,7 @@ fun GreetingQLMon(name: String, modifier: Modifier = Modifier) {
             .fillMaxSize()
             .background(color = Color("#252121".toColorInt()))
     ) {
-        getHeaderDetail()
+        getHeaderLoaiMon()
         getKC()
         OutlinedTextField(
             value = tenloai,
@@ -167,8 +169,12 @@ fun GreetingQLMon(name: String, modifier: Modifier = Modifier) {
                             .weight(1f)
                             .align(Alignment.CenterVertically)
                             .clickable {
-                                db.LoaiMonDao().deleteLoaiMon(loaiMon.idLoai)
-                                listLoaiMons = db.LoaiMonDao().getAllLoaiMon()
+                                db
+                                    .LoaiMonDao()
+                                    .deleteLoaiMon(loaiMon.idLoai)
+                                listLoaiMons = db
+                                    .LoaiMonDao()
+                                    .getAllLoaiMon()
                             }
                     )
                     Image(
@@ -291,3 +297,40 @@ fun ShowEditLoaiDialog(
             }
         }
     }
+@Composable
+fun getHeaderLoaiMon(){
+    val context = LocalContext.current
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(color = Color("#252121".toColorInt()))
+            .height(100.dp)
+
+
+    ) {
+        Icon(
+            Icons.Default.ArrowBack, contentDescription ="" ,
+            Modifier
+                .size(40.dp)
+                .clickable { BackManagerAdmin(context) },
+            tint = Color.White
+        )
+
+        Image(painter = painterResource(id = R.drawable.logo),
+            contentDescription = "logo",
+            modifier = Modifier
+                .size(60.dp)
+                .padding(start = 10.dp)
+        )
+        Text(text = "Cum tứm đim",
+            style = TextStyle(
+                color = Color("#FFFFFF".toColorInt()),
+                fontSize = 18.sp,
+                lineHeight = 22.sp,
+
+                ),
+            modifier = Modifier.padding(start = 15.dp)
+        )
+    }
+}

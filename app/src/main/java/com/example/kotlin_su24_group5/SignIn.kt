@@ -1,5 +1,6 @@
 package com.example.kotlin_su24_group5
 
+import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -29,6 +30,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -60,172 +62,158 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import com.example.kotlin_su24_group5.DataUser.UserViewModel
+import com.example.kotlin_su24_group5.Dish.ListDish
 
 
 class SignIn : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         setContent {
-            LoginScreen()
+            Login(userViewModel) {
+                startActivity(Intent(this@SignIn, Menu::class.java))
+                finish()
+            }
 
         }
     }
 
-    @Composable
-    fun LoginScreen() {
-        val context = LocalContext.current
-        Box(
-            modifier = Modifier
-                .background(color = Color.Black)
-                .fillMaxSize()
 
-        ) {
-            Top()
-            Login(context = context)
-            SignUp()
-
-        }
-
-    }
-
-    @Composable
-    fun Top(){
-        Row(
-            modifier = Modifier
-                .height(350.dp)
-                .padding(top = 30.dp)
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.logo1),
-                contentDescription = null,
-                modifier = Modifier.fillMaxSize()
-
-            )
-
-
-        }
-    }
 
 
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    fun Login(context: Context) {
-        val defaulUser = "kotlin"
-        val defaultPassword = "123"
-        var user by remember { mutableStateOf("") }
+    fun Login(userViewModel: UserViewModel, onLoginSuccess: () -> Unit) {
+        val context = LocalContext.current
+        var username by remember { mutableStateOf("") }
         var password by remember { mutableStateOf("") }
-        var isLoggedIn by remember { mutableStateOf(false) }
+        var loginError by remember { mutableStateOf(false) }
+        Column (modifier = Modifier
+            .background(color = Color.Black)
+            .fillMaxSize()){
 
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 150.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Column(
-                modifier = Modifier.padding(horizontal = 16.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+            Image(
+                painter = painterResource(id = R.drawable.logo1),
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+
+            )
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
+                contentAlignment = Alignment.Center
             ) {
-                OutlinedTextField(
+                Column(
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    OutlinedTextField(
 
-                    value = user,
-                    onValueChange = { user = it },
-                    label = { Text("User") },
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = TextFieldDefaults.textFieldColors(
-                        containerColor = Color.White
+                        value = username,
+                        onValueChange = { username = it },
+                        label = { Text("User") },
+
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = TextFieldDefaults.textFieldColors(
+                            containerColor = Color.White
+                        )
+
                     )
 
-                )
+                    OutlinedTextField(
+                        value = password,
+                        onValueChange = { password = it },
+                        label = { Text("Password") },
+                        visualTransformation = PasswordVisualTransformation(),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp),
+                        colors = TextFieldDefaults.textFieldColors(
+                            containerColor = Color.White
+                        )
 
-                OutlinedTextField(
-                    value = password,
-                    onValueChange = { password = it },
-                    label = { Text("Password") },
-                    visualTransformation = PasswordVisualTransformation(),
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-                    modifier = Modifier.fillMaxWidth()
-                        .padding(top = 10.dp),
-                    colors = TextFieldDefaults.textFieldColors(
-                        containerColor = Color.White
                     )
+                    Spacer(modifier = Modifier.height(16.dp))
 
-                )
-                Spacer(modifier = Modifier.height(16.dp))
+                    Box(
+                        modifier = Modifier
+                            .padding(top = 60.dp),
 
-                Box (
-                    modifier = Modifier
-                        .padding(top = 60.dp),
-
-
-                ){
-
-                    Button(
-                        onClick = {
-                            if (password == defaultPassword &&  user==defaulUser) {
-                                val intent = Intent(context, Menu::class.java)
-                                context.startActivity(intent)
-                                Toast.makeText(context, "Welcome To Group5", Toast.LENGTH_SHORT).show()
-                            } else {
-                                Toast.makeText(context, "Tên người dùng hoặc mật khẩu không hợp lệ", Toast.LENGTH_SHORT).show()
-                            }
-                        },
-                        enabled = !isLoggedIn,
-                        colors = ButtonDefaults.buttonColors(Color.DarkGray),
-                        modifier = Modifier.size(width = 280.dp, height = 50.dp)
 
                         ) {
-                        Text(
-                            text = "Login",
-                            color = Color.White,
-                            fontSize = 25.sp
-                        )
+
+                        Button(
+                            onClick = {
+                                userViewModel.loginUser(username, password) { user ->
+                                    if (user != null) {
+                                        onLoginSuccess()
+                                        Toast.makeText(context,"Login Succesfully",Toast.LENGTH_SHORT).show()
+                                    } else {
+                                        loginError = true
+                                        Toast.makeText(context, "Invalid username or password", Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+                            },
+                            colors = ButtonDefaults.buttonColors(Color.DarkGray),
+                            modifier = Modifier.size(width = 280.dp, height = 50.dp)
+
+                        ) {
+                            Text(
+                                text = "Login",
+                                color = Color.White,
+                                fontSize = 25.sp
+                            )
+                        }
+                        if (loginError) {
+                            Spacer(modifier = Modifier.height(8.dp))
+
+                        }else{
+
+                        }
                     }
 
+                    Box(
+                        modifier = Modifier
+                            .padding(top = 30.dp),
 
+
+                        ) {
+
+                        Button(
+                            onClick = {
+                                navSignUp(context)
+                            },
+                            colors = ButtonDefaults.buttonColors(Color.DarkGray),
+                            modifier = Modifier.size(width = 280.dp, height = 50.dp)
+
+                            ) {
+                            Text(
+                                text = "SignUp",
+                                color = Color.White,
+                                fontSize = 25.sp
+                            )
+                        }
+                    }
                 }
-
-
             }
         }
     }
 
-//    @Composable
-//    fun SignUp(){
-//        val context = LocalContext.current
-//        Box(
-//            modifier = Modifier
-//                .fillMaxSize()
-//                .padding(top = 500.dp),
-//            contentAlignment = Alignment.Center
-//        ){
-//            Button(
-//                onClick = {val intent = Intent(context, SignUp::class.java)
-//                    context.startActivity(intent)},
-//                colors = ButtonDefaults.buttonColors(Color.White),
-//
-//                ) {
-//                Text(
-//                    text = "Sign Up",
-//                    color = Color.Black,
-//                    fontSize = 18.sp,
-//                    fontWeight = FontWeight.Bold
-//                )
-//
-//            }
-//        }
-//
-//    }
-
-
-
-
-
     @Preview(showBackground = true)
     @Composable
     fun PreviewLogin(){
-        LoginScreen()
+        Login()
     }
+}
+fun navSignUp(context: Context){
+    val intent = Intent(context, SignUpScreen::class.java)
+    context.startActivity(intent)
 }
